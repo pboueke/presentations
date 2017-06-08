@@ -15,7 +15,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="../reveal/css/reveal.css">
-		<link rel="stylesheet" href="../reveal/css/theme/solarized.css" id="theme">
+		<link rel="stylesheet" href="../reveal/css/overwrites.css">
+		<link rel="stylesheet" href="../reveal/css/theme/blood.css" id="theme">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
@@ -38,21 +39,105 @@
 
 		<div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
+			<!-- SLIDE 1.1 -->
 			<div class="slides">
-				<section>
-					<h1>Reveal.js</h1>
-					<h3>Hi there!!</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-					</p>
+				<section  style="-webkit-filter: brightness(150%); filter: brightness(150%);background-image: url('img/M_0.0000100000proot_10000_-1_True.png'); background-size:100% 100%; background-repeat: no-repeat;">
+					<div style="-webkit-filter: brightness(75%);filter: brightness(75%);">
+						<h2>Reddit comment thread trees</h2>
+						<img class="clean-img" src="img/reddit-logo.svg" width="300px"/>
+						<p>
+							<small>Presentation by <a href="http://pboueke.github.io">Pedro Boueke</a>, June 2017 </small>
+						</p>
+					</div>
 				</section>
 
 				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
+					<!-- SLIDE 2.1 -->
+					<section>
+						<h3><span><img style="margin:0 20px 0 0;" class="clean-img" src="img/reddit-logo.svg" width="150px"/></span>Reddit?</h3>
+						<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+								"The front page of the internet"
+						</blockquote>
+						<p>
+							It's a content centered anonymous social network.
+						</p>
+						<p>
+							7th most popular website on USA, 22th on the world.
+						</p>
+						<h3 class="fragment fade-up">BIG DEAL</h3>
+					</section>
+
+					<!-- SLIDE 2.2 -->
+					<section>
+						<h3>THREADS?</h3>
+						<p>
+							Reddit owes its success to its comments section.
+							Upvotes, downvotes and replies.
+						</p>
+						<span>
+							<img style="margin:0 50px 0 50px;" class="clean-img" src="img/up.png" width="100px"/>
+							<img style="margin:0 50px 0 50px;" class="clean-img" src="img/down.png" width="100px"/>
+						</span>
+					</section>
+
+					<!-- SLIDE 2.3 -->
+					<section>
+						<img style="max-height: 540px; left0;" class="clean-img" src="img/reddit_struct.png"/>
+					</section>
+
+					<!-- SLIDE 2.4 -->
+					<section>
+						<img style="top: 0px; -webkit-transform: rotate(-55deg);transform: rotate(-55deg);width:500px;position:fixed; -webkit-filter: brightness(200%); filter: brightness(200%);" class="clean-img" src="img/0.0010000000proot_1000_-1_True_20170608011453901836_f.png"/>
+						<h3>TREES?</h3>
+						<p>
+							Each thread a tree
+						</p>
+						<p>
+							Each comment a vertex.
+						</p>
+						<p>
+							Each reply an edge.
+						</p>
+					</section>
+					<!-- SLIDE 2.5 -->
+					<section>
+						<img class="clean-img" src="img/real_thread2.png"/>
+					</section>
+					<!-- SLIDE 2.6 -->
+					<section>
+						<h3>A tree graph!</h3>
+						<p>
+							Great for <span class="fragment highlight-blue">modelling</span>.
+						</p>
+						<p>
+							Excellent for a <span class="fragment highlight-blue">mathematical analysis</span>.
+						</p>
+						<p>
+							Interesting <span class="fragment highlight-blue">topological metrics</span>.
+						</p>
+						<p class="fragment fade-up">
+							And more!
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<!-- SLIDE 3.1 -->
+					<section>
+						<h4>But why?</h4>
+						<p class="fragment fade-up"> To create a <span style="color:green;">model</span> capable of representing the <br><span style="color:red;">real thing</span>.</p>
+						<h4>And how?</h4>
+						<p class="fragment fade-up"> Studying the real structures and being clever. </p>
+						<p class="fragment fade-up"> <span style="color:yellow"> (trying to) </span> </p>
+					</section>
+				</section>
+
+				<section>
+					<!-- SLIDE 4.1 -->
+					<section>
+						<h4>THE REAL THING</h4>
+
+					</section>
 				</section>
 
 				<!-- Example of nested vertical slides -->
