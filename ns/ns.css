@@ -8,19 +8,26 @@
   text-align: center;
 }
 
-h2, h3, h4, p, span, a {
+h2, h3, h4, p, a {
   font-family: 'Encode Sans', sans-serif !important;
   font-size: 25px !important;
   color: #dedede;
 }
 
-.title {
+.tech {
   font-family: 'Share Tech Mono', monospace !important;
+}
+
+.sans {
+  font-family: 'Encode Sans', sans-serif !important;
+}
+
+.title {
   font-size: 85px;
 }
 
 .subtitle {
-  font-family: 'Encode Sans', sans-serif !important;
+
   font-size: 45px;
 }
 

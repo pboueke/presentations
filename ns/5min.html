@@ -18,18 +18,58 @@
         <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
     </div>
     <div id="impress">
-      <div id="Title" class="step press" data-x="-1000" data-y="-1500">
-        <div class="title">Network Science</div>
-        <div class="subtitle">in 5 minutes</div>
+      <div id="Title" class="step press" data-x="-1000" data-y="-2000" data-scale="100">
+        <div class="title tech">Network Science</div>
+        <div class="subtitle sans">in 5 minutes</div>
         <p>(or something close to that)</p>
         <div style="padding-top:100px"></div>
         <p>Presentation by <a href="https://pboueke.github.io">Pedro Boueke</a>, August 2017</p>
       </div>
-      <div class="step press" data-x="0" data-y="-1500">
-        <q>Don’t you think that presentations given <strong>in modern browsers</strong> shouldn’t <strong>copy the limits</strong> of ‘classic’ slide decks?</q>
+
+      <div class="step press" data-x="90000" data-y="-15000" data-scale="110" data-rotate="90">
+        <div class="subtitle sans">the study of Complex Networks </div>
       </div>
-      <div class="step press" data-x="1000" data-y="-1500">
-        <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
+      <div class="step press" data-x="90000" data-y="-30000" data-z="-100" data-scale="1" data-rotate="90">
+        <div class="subtitle tech">computer networks</div>
+        <div style="padding-top:50px"></div>
+        <p>internet, world wide web, telecomunication grids...</p>
+      </div>
+      <div class="step press" data-x="90000" data-y="-28500" data-z="-100" data-scale="1" data-rotate="90">
+        <div class="subtitle tech">biological networks</div>
+        <div style="padding-top:50px"></div>
+        <p>neurons, chemical reactions, species...</p>
+      </div>
+      <div class="step press" data-x="90000" data-y="-27500" data-z="-100" data-scale="1" data-rotate="90">
+        <div class="subtitle tech">social networks</div>
+        <div style="padding-top:50px"></div>
+        <p>friendship networks, neighborhoods, facebook...</p>
+      </div>
+
+      <div class="step press" data-x="180000" data-y="-1500" rotate="-90" data-scale="100">
+        <div class="subtitle tech">basically:</div>
+        <div style="padding-top:20px"></div>
+        <div class="subtitle sans"><span style="color:#4bff84;">things</span> involved in complex <span style="color:#ff6565;">relationships</span></div>
+      </div>
+
+      <div class="step press" data-x="250000" data-y="-115000" rotate="-90" data-scale="100" data-rotate-y="60">
+        <div class="subtitle sans"><span style="color:#68fff2;">interdisciplinary</span> by nature</div>
+        <div style="padding-top:50px"></div>
+        <p>a convergence of fields led to what now is known as network science</p>
+      </div>
+      <div class="step press" data-x="250000" data-y="-1500" rotate="-90" data-scale="100" data-rotate-y="90">
+        <p>a <span style="color:#ffb84b;">graph</span>, a simple mathematical abstraction</p>
+        <img src="img/graph.png">
+        <p>with infinite applications</p>
+      </div>
+      <div class="step press" data-x="250000" data-y="85000" rotate="-90" data-scale="100" data-rotate-y="120">
+        <p>and infinite forms</p>
+        <img src="img/reddit.png" style="width:100%; filter: brightness(2);">
+        <p>(Reddit comment thread trees, one is real, the other was generated. You can read more about my work on the subject <a href="https://pboueke.github.io/presentations/rtm/reddit.html#/">here</a>.)</p>
+      </div>
+      <div class="step press" data-x="250000" data-y="185000" rotate="-90" data-scale="100" data-rotate-y="150">
+        <div class="subtitle sans">creating a<span style="color:#ff6363;"> powerful tool </span> </div>
+        <div style="padding-top:50px"></div>
+        <p>that enables us to see nature in its true complexity</p>
       </div>
     </div>
     <script src="../impress/js/impress.js"></script>
@@ -49,6 +89,8 @@
         speed: 'slow'
       };
       var particleCanvas = new ParticleNetwork(canvasDiv, options);
+
+      window.dispatchEvent(new Event('resize'));
     </script>
   </body>
 </html>
