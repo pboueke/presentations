@@ -183,9 +183,9 @@ i, em { font-style: italic }
     padding: 10px 10px 0;
     margin: 20px auto;
 
-    border: 1px solid #E4C652;
+    border: 1px solid #ff7300;
     border-radius: 10px;
-    background: #EEDC94;
+    background: #46101;
 }
 
 .fallback-message p {

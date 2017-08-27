@@ -114,11 +114,6 @@
     <script src="../impress/js/impress.js"></script>
     <script type="text/javascript" src="../particles/particle-network.min.js"></script>
     <script>
-      if ("ontouchstart" in document.documentElement) {
-          document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
-      }
-      impress().init();
-
       var canvasDiv = document.getElementById('particle-canvas');
       var options = {
         particleColor: '#fff',
@@ -137,6 +132,11 @@
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-63582989-1', 'auto');
       ga('send', 'pageview');
+
+      if ("ontouchstart" in document.documentElement) {
+          document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+      }
+      impress().init();
     </script>
   </body>
 </html>
