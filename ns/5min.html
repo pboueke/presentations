@@ -1,0 +1,54 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Complex Networks - in 5 minutes | by Pedro Boueke @pboueke</title>
+
+    <meta name="description" content="A brief introduction to the concept of network science (or complex networks)." />
+    <meta name="author" content="Pedro Boueke" />
+
+    <link href="ns.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans|Share+Tech+Mono" rel="stylesheet">
+  </head>
+  <body class="impress-not-supported">
+    <div id="particle-canvas"></div>
+    <div class="fallback-message">
+        <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+        <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+    </div>
+    <div id="impress">
+      <div id="Title" class="step press" data-x="-1000" data-y="-1500">
+        <div class="title">Network Science</div>
+        <div class="subtitle">in 5 minutes</div>
+        <p>(or something close to that)</p>
+        <div style="padding-top:100px"></div>
+        <p>Presentation by <a href="https://pboueke.github.io">Pedro Boueke</a>, August 2017</p>
+      </div>
+      <div class="step press" data-x="0" data-y="-1500">
+        <q>Don’t you think that presentations given <strong>in modern browsers</strong> shouldn’t <strong>copy the limits</strong> of ‘classic’ slide decks?</q>
+      </div>
+      <div class="step press" data-x="1000" data-y="-1500">
+        <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
+      </div>
+    </div>
+    <script src="../impress/js/impress.js"></script>
+    <script type="text/javascript" src="../particles/particle-network.min.js"></script>
+    <script>
+      if ("ontouchstart" in document.documentElement) {
+          document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+      }
+      impress().init();
+
+      var canvasDiv = document.getElementById('particle-canvas');
+      var options = {
+        particleColor: '#fff',
+        interactive: false,
+        speed: 'low',
+        density: 'medium',
+        speed: 'slow'
+      };
+      var particleCanvas = new ParticleNetwork(canvasDiv, options);
+    </script>
+  </body>
+</html>
