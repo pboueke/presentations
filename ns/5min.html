@@ -70,6 +70,45 @@
         <div class="subtitle sans">creating a<span style="color:#ff6363;"> powerful tool </span> </div>
         <div style="padding-top:50px"></div>
         <p>that enables us to see nature in its true complexity</p>
+        <p>and empowers us to attempt comprehension</p>
+      </div>
+
+      <div class="step press" data-x="400000" data-y="-1500" rotate="-90" data-scale="100">
+        <div class="subtitle tech">Albert Barabási</div>
+        <div style="padding-top:20px"></div>
+        <div class="subtitle sans" style="translateY(50px);"><a href="http://www.tedmed.com/talks/show?id=7282">[TED Talk]</a> <i style="font-size: 35px;"i>Do your proteins have their own social network?</i></div>
+        <div style="padding-top:50px"></div>
+        <p>One of the most influential - and cited - modern researchers. Known for many of his contributions to the field, specially related to scaling and organization of random networks.</p>
+      </div>
+
+      <div class="step press" data-x="400000" data-y="-115000" data-rotate="90" data-scale="180">
+        <div class="subtitle tech"><a href="https://www.ted.com/talks/sebastian_seung">[TED Talk]</a> I am my connectome</div>
+        <div style="padding-top:20px"></div>
+        <p>Sebastia Seung. Are we more than the connections of our neurons?</p>
+        <img src="img/worm.png"/>
+        <a href="http://www.openworm.org/"> The OpenWorm Project</a>
+      </div>
+
+      <div class="step press" data-x="300000" data-y="-150000" data-rotate="180" data-scale="90">
+        <div class="subtitle tech"><a href="https://www.ted.com/talks/nicholas_christakis_the_hidden_influence_of_social_networks">[TED Talk]</a> The hidden influence of social networks</div>
+        <div style="padding-top:20px"></div>
+        <p>Nicholas Christakis, "how the large-scale, face-to-face social networks in which we are embedded affect our lives, and what we can do to take advantage of this fact."</p>
+      </div>
+
+      <div class="step press" data-x="200000" data-y="-170000" data-rotate="60" data-scale="100">
+        <div class="subtitle tech"><a href="https://www.ted.com/talks/james_b_glattfelder_who_controls_the_world#t-791569">[TED Talk]</a> Who controls the world?</div>
+        <div style="padding-top:20px"></div>
+        <img src="img/control.png"/>
+        <p>James B. Glatteferder, a data-driven approach to understanding the global economy through the study of its complex relationships.</p>
+      </div>
+
+      <div class="step press" data-x="300000" data-y="-25000" data-rotate="75" data-scale="200">
+        <div class="subtitle tech">Time's up!</div>
+        <div style="padding-top:20px"></div>
+        <p> I hope you have learned something today.</p>
+        <p> Network science, the study of complexity, a new interdisciplinary field with a future promising to challenge exactly how we see the world.</p>
+        <div style="padding-top:30px"></div>
+        <p>Presentation by <a href="https://pboueke.github.io">Pedro Boueke</a>, August 2017</p>
       </div>
     </div>
     <script src="../impress/js/impress.js"></script>
@@ -91,6 +130,13 @@
       var particleCanvas = new ParticleNetwork(canvasDiv, options);
 
       window.dispatchEvent(new Event('resize'));
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-63582989-1', 'auto');
+      ga('send', 'pageview');
     </script>
   </body>
 </html>
