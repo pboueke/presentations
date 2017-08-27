@@ -114,18 +114,6 @@
     <script src="../impress/js/impress.js"></script>
     <script type="text/javascript" src="../particles/particle-network.min.js"></script>
     <script>
-      var canvasDiv = document.getElementById('particle-canvas');
-      var options = {
-        particleColor: '#fff',
-        interactive: false,
-        speed: 'low',
-        density: 'medium',
-        speed: 'slow'
-      };
-      var particleCanvas = new ParticleNetwork(canvasDiv, options);
-
-      window.dispatchEvent(new Event('resize'));
-
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -137,6 +125,18 @@
           document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
       }
       impress().init();
+
+      var canvasDiv = document.getElementById('particle-canvas');
+      var options = {
+        particleColor: '#fff',
+        interactive: false,
+        speed: 'low',
+        density: 'medium',
+        speed: 'slow'
+      };
+      var particleCanvas = new ParticleNetwork(canvasDiv, options);
+
+      window.dispatchEvent(new Event('resize'));
     </script>
   </body>
 </html>
