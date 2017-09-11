@@ -143,10 +143,10 @@ a:hover {
   background-color: transparent;
   border-radius: 2rem;
   border: 1rem solid;
-  border-bottom-color: #121212;
-  border-left-color: #080808;
-  border-right-color: #080808;
-  border-top-color: #020202;
+  border-bottom-color: #2d2d2d;
+  border-left-color: #1f1f1f;
+  border-right-color: #1f1f1f;
+  border-top-color: #2f2f2f;
   box-shadow: inset 0 0 18rem black,
     inset 0 0 3rem black,
     0 0 10rem black;
@@ -214,7 +214,7 @@ a:hover {
   background: radial-gradient(circle at center, #1bd459 0%, rgba(27, 212, 89, 0.88) 58%, rgba(21, 235, 92, 0.57) 80%, rgba(19, 94, 29, 0.27) 93%, rgba(10, 23, 12, 0) 100%);
   opacity: 0.15;
   pointer-events: none;
-  position: fixed;
+  position: absolute;
 }
 @-webkit-keyframes crt-glow {
   0% {
