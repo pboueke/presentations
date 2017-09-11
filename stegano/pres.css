@@ -14,11 +14,23 @@
   border-bottom: 0.0rem solid #ffb57f !important;
 }
 
+.portrait {
+  margin-right: 100px;
+  margin-left: 50px;
+}
+
 .main-title {
   font-size: 1vw;
+  margin-top: 40px;
 }
 .thanks {
   font-size: 1vw;
+}
+@media screen and (max-width: 640px) {
+  .portrait {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -115,6 +127,13 @@ a:focus,
 a:hover {
   background-color: #14fdce;
   color: #031e11;
+}
+.piece {
+    display: block;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
 }
 
 .noclick {

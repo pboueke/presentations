@@ -32,8 +32,6 @@
 <body class="noisy">
   <div class="deck-container frame output">
 
-    <!-- Begin slides. Just make elements with a class of slide. -->
-
     <section class="slide">
       <h1 class="main-title">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -55,6 +53,7 @@
       <div style = "position: absolute; margin-bottom: 0;">
         UFRJ - EEL840 - <a href="https://pboueke.github.io"> PEDRO BOUEKE</a> - SEPTEMBER 2017
       </div>
+      <div style="margin-top:300px;color: #3a6b57;">best at 1200x900px</div>
     </section>
 
     <section class="slide ">
@@ -101,7 +100,7 @@
       <hr>
       <p>What makes steganography good?</p>
       <br>
-      <div style="display:flex; justify-content: space-between;">
+      <div style="display:flex; justify-content: space-between; flex-wrap: wrap;">
         <div style="width:30%;"> SECURITY <br> <img style="margin:30px 0 20px 0; width:30%" alt="security icon" src="img/src.png"/> <br> How easily the existence of steganography can be estimated</div>
         <div style="width:30%;"> CAPACITY <br> <img style="margin:30px 0 20px 0; width:30%" alt="capacity icon" src="img/cap.png"/> <br> How much information can be stored in a message</div>
         <div style="width:30%;"> IMPERCEPTIBILITY <br> <img style="margin:30px 0 20px 0; width:30%" alt="imperceptibility icon" src="img/imp.png"/> <br> How much perceptible distortion or noise was generated </div>
@@ -134,7 +133,7 @@
     <section class="slide">
       <h1>IMAGE STEGANOGRAPHY: MASKING AND FILTERING</h1>
       <hr>
-      <p>Similar to the LSB method, but not so susceptible failure due to the fact that image manipulations does not affect the hidden message. </p>
+      <p>Similar to the LSB method, but not so susceptible to failure due to the fact that image manipulations does not affect the hidden message. </p>
       <p>As can be noted, this technique will only work on black and white pictures.</p>
       <div style="display:flex; justify-content: center;">
         <img style="width: 80%; margin-top:30px;" alt="lsb example" src="img/fsb.png"/>
@@ -156,12 +155,26 @@
     </section>
 
     <section class="slide">
+      <h1>IMAGE STEGANOGRAPHY: MUCH MORE</h1>
+      <hr>
+      <p>We covered the basics of digital image staganography. Both steganography and steganalysis compete in an everlasting race with modern techniques, software and ongoing research.</p>
+      <br>
+      <div style="display:flex; justify-content: space-around; flex-wrap: wrap;">
+        <div style="margin-right:50px; width: 600px">
+          <p>LSB, BPCS, Stochastic Modulation, PVD, MBNS, QIM/DM, Jsteg, F5, OG, MB and YASS are all some of the steganographic methods developed and studied for steganography in JPEG images.</p>
+          <p>The image demonstrates random partioning of the image used by YASS(Yet Another Steganographic Scheme - that resists blind steganalysis) to promove imperceptibility.</p>
+        </div>
+        <div > <img style="box-shadow: 0rem 1px 5px 1px #0c7b46, 0rem 1px 5px 3px #14fdce; margin-top:30px" alt="yass diagram" src="img/yass.png"/> </div>
+      </div>
+    </section>
+
+    <section class="slide">
       <h1>FUN: THE MISTERY OF CICADA 3307</h1>
       <hr>
       <br>
-      <div style="display:flex; justify-content: space-around;">
+      <div style="display:flex; justify-content: space-around; flex-wrap: wrap;">
         <div > <img style="box-shadow: 0rem 1px 5px 1px #0c7b46, 0rem 1px 5px 3px #14fdce; margin-top:30px" alt="cicada mystery modified image" src="img/cicada.png"/> </div>
-        <div>
+        <div style="width: 700px;">
           <ul style="list-style-type:square">
             <li>posted on an image board in 2012, it quickly got viral</li>
             <li>examination of the image led to a series of very specific puzzles that had to be solved for advancing in the mistery</li>
@@ -170,19 +183,9 @@
             <li>similar challenges happened in the years that followed</li>
             <li>the cicada 3307 remains as a very popular use of steganography on the web</li>
           </ul>
-        </div
+        </div>
       </div>
     </section>
-
-    <!--<section class="slide">
-      <h1>yiylr</h1>
-      <hr>
-    </section>
-
-    <section class="slide">
-      <h1>yiylr</h1>
-      <hr>
-    </section>-->
 
     <section class="slide">
       <h1 class="main-title">
@@ -201,8 +204,8 @@
       <p>Awesome! You made it to the end. Here are some links for you:</p>
       <hr>
       <br><br>
-      <div style="display:flex;">
-        <div style="margin-right: 100px;margin-left: 50px;">
+      <div style="display:flex; flex-wrap: wrap;">
+        <div class="portrait">
           <img style="width: 175px" src="img/face.png" alt="my ugly face"></img>
         </div>
         <div style="width:40%;">
@@ -215,8 +218,10 @@
         </div>
       </div>
       <div style="margin-left:50px;margin-top:50px;color: #3a6b57;">can you find the hidden message in this presentation?</div>
-
     </section>
+
+    <div class="piece scanlines noclick"></div>
+    <div class="piece glow noclick"></div>
 
     <!-- End slides. -->
 
@@ -236,7 +241,6 @@
       <input type="submit" value="Go">
     </form>
 
-    <!-- End extension snippets. -->
   </div>
 
   <!--<div class="pres-author"> Presentation by <a href="https://pboueke.github.io"> Pedro Boueke</a>, September 2017  </div>-->
