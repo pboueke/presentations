@@ -4,9 +4,9 @@
 
 .pres-author {
   position: absolute;
-  bottom: 25px;
+  bottom: 20px;
   color: #fff !important;
-  font-size: 24px !important;
+  font-size: 20px !important;
 }
 
 .pres-author > * {
@@ -17,10 +17,16 @@
 .main-title {
   font-size: 1vw;
 }
+.thanks {
+  font-size: 1vw;
+}
 
 @media screen and (min-width: 1200px) {
   .main-title {
 	  font-size: 12px
+  }
+  .thanks {
+    font-size: 1vw;
   }
 }
 

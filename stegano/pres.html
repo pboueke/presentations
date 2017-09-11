@@ -15,7 +15,6 @@
   <link rel="stylesheet" media="screen" href="../deck/extensions/goto/deck.goto.css">
   <link rel="stylesheet" media="screen" href="../deck/extensions/menu/deck.menu.css">
   <link rel="stylesheet" media="screen" href="../deck/extensions/navigation/deck.navigation.css">
-  <link rel="stylesheet" media="screen" href="../deck/extensions/status/deck.status.css">
   <link rel="stylesheet" media="screen" href="../deck/extensions/scale/deck.scale.css">
 
   <!-- Style theme. More available in /themes/style/ or create your own. -->
@@ -98,6 +97,51 @@
     </section>
 
     <section class="slide">
+      <h1>Evaluating</h1>
+      <hr>
+      <p>What makes steganography good?</p>
+      <br>
+      <div style="display:flex; justify-content: space-between;">
+        <div style="width:30%;"> SECURITY <br> <img style="margin:30px 0 20px 0; width:30%" alt="security icon" src="img/src.png"/> <br> How easily the existence of steganography can be estimated</div>
+        <div style="width:30%;"> CAPACITY <br> <img style="margin:30px 0 20px 0; width:30%" alt="capacity icon" src="img/cap.png"/> <br> How much information can be stored in a message</div>
+        <div style="width:30%;"> IMPERCEPTIBILITY <br> <img style="margin:30px 0 20px 0; width:30%" alt="imperceptibility icon" src="img/imp.png"/> <br> How much perceptible distortion or noise was generated </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h1>Stego Objects</h1>
+      <hr>
+      <p>Steganography can be applied to any medium.</p>
+      <br>
+      <div style="display:flex; justify-content: space-between;">
+        <div style="width:30%;"> PHYSICAL <ul style="list-style-type:square"><li>written text</li><li>hairstyles</li><li>clothing</li><li>body movements</li><li>...</li></ul></div>
+        <div style="width:30%;"> DIGITAL <ul style="list-style-type:square"><li>digital text</li><li>media encoding</li><li>mimic functions</li><li>content manipulation</li><li>...</li></ul> </div>
+        <div style="width:30%;"> OTHERS  <ul style="list-style-type:square"><li>puzzles</li><li>naming of things</li><li>networks</li><li>intentional mistakes</li><li>...</li></ul> </div>
+      </div>
+      <p>There is a lot of research and interest in digital images. That's where we will be focusing on.</p>
+    </section>
+
+    <section class="slide">
+      <h1>IMAGE STEGANOGRAPHY: LSB</h1>
+      <hr>
+      <p>One of the most well known methods of digital steganography, the LSB (least significant bit) method consists of using the last bit of each color channel of an image to store information.</p>
+      <p>It's easy to understand and implement, can be used with any image format and has high capacity, but is also easy to detect and the chances of failure are high.</p>
+      <div style="display:flex; justify-content: center;">
+        <img style="width: 90%; margin-top:30px;" alt="lsb example" src="img/lsb.png"/>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h1>IMAGE STEGANOGRAPHY: MASKING AND FILTERING</h1>
+      <hr>
+      <p>Similar to the LSB method, but not so susceptible failure due to the fact that image manipulations does not affect the hidden message. </p>
+      <p>As can be noted, this technique will only work on black and white pictures.</p>
+      <div style="display:flex; justify-content: center;">
+        <img style="width: 80%; margin-top:30px;" alt="lsb example" src="img/fsb.png"/>
+      </div>
+    </section>
+
+    <!--<section class="slide">
       <h1>yiylr</h1>
       <hr>
     </section>
@@ -110,16 +154,39 @@
     <section class="slide">
       <h1>yiylr</h1>
       <hr>
-    </section>
+    </section>-->
 
     <section class="slide">
-      <h1>yiylr</h1>
+      <h1 class="main-title">
+8888888&nbsp;8888888888&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,88'&nbsp;&nbsp;&nbsp;d888888o.&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;888o.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;,88'&nbsp;&nbsp;.`8888:'&nbsp;`88.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:88888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Y88888o.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;,88'&nbsp;&nbsp;&nbsp;8.`8888.&nbsp;&nbsp;&nbsp;Y8&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;`88888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.`Y888888o.&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8&nbsp;8888&nbsp;&nbsp;,88'&nbsp;&nbsp;&nbsp;&nbsp;`8.`8888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.8.&nbsp;`88888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8o.&nbsp;`Y888888o.&nbsp;8&nbsp;8&nbsp;8888&nbsp;,88'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8.`8888.&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.8`8.&nbsp;`88888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8`Y8o.&nbsp;`Y88888o8&nbsp;8&nbsp;8888&nbsp;88'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8.`8888.&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888888888888&nbsp;&nbsp;&nbsp;&nbsp;.8'&nbsp;`8.&nbsp;`88888.&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;`Y8o.&nbsp;`Y8888&nbsp;8&nbsp;888888<&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8.`8888.&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;.8'&nbsp;&nbsp;&nbsp;`8.&nbsp;`88888.&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Y8o.&nbsp;`Y8&nbsp;8&nbsp;8888&nbsp;`Y8.&nbsp;&nbsp;&nbsp;&nbsp;8b&nbsp;&nbsp;&nbsp;`8.`8888.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;.888888888.&nbsp;`88888.&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Y8o.`&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;`Y8.&nbsp;&nbsp;`8b.&nbsp;&nbsp;;8.`8888&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;.8'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8.&nbsp;`88888.&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Yo&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Y8.&nbsp;`Y8888P&nbsp;,88P'&nbsp;<br>
+      </h1>
+      <br><br>
+      <p>Awesome! You made it to the end. Here are some links for you:</p>
       <hr>
-    </section>
+      <br><br>
+      <div style="display:flex;">
+        <div style="margin-right: 100px;margin-left: 50px;">
+          <img style="width: 175px" src="img/face.png" alt="my ugly face"></img>
+        </div>
+        <div style="width:40%;">
+          <ul style="list-style-type:square">
+            <li><a href="https://github.com/pboueke">pboueke</a> @ github</li>
+            <li>my <a href="https://pboueke.github.io/"> landing page</a></li>
+            <li><a href="https://github.com/pboueke/presentations">repo</a> with more presentations</li>
+            <li>another <a href="https://pboueke.github.io/b/log"> techblog</a></li>
+          </ul>
+        </div>
+      </div>
 
-    <section class="slide">
-      <h1>yiylr</h1>
-      <hr>
     </section>
 
     <!-- End slides. -->
@@ -131,13 +198,6 @@
       <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
       <a href="#" class="deck-next-link" title="Next">&#8594;</a>
     </div>
-
-    <!-- deck.status snippet -->
-    <p class="deck-status" aria-role="status">
-      <span class="deck-status-current"></span>
-      /
-      <span class="deck-status-total"></span>
-    </p>
 
     <!-- deck.goto snippet -->
     <form action="." method="get" class="goto-form">
@@ -159,7 +219,6 @@
 <!-- Extension JS files. Add or remove as needed. -->
 <script src="../deck/extensions/menu/deck.menu.js"></script>
 <script src="../deck/extensions/goto/deck.goto.js"></script>
-<script src="../deck/extensions/status/deck.status.js"></script>
 <script src="../deck/extensions/navigation/deck.navigation.js"></script>
 <script src="../deck/extensions/scale/deck.scale.js"></script>
 
