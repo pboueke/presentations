@@ -79,7 +79,7 @@
       <br>
       <p>Considering the example below, which would be more likely to be ignored in a monitored medium, the cipher text or the image?</p>
       <br>
-      <div style="display:flex;">
+      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;">
         <div style="width:30%;"> Message: <br><br>HELLO WORLD</div>
         <div style="width:30%;"> Ciphertext: <br><br>AYE4jnEpKaYsuDE=</div>
         <div style="width:30%;"> Hidden text: <br><br><img style="width: 175px" src="img/face_w_message.png" alt="image containing the message HELLO WORLD"></img></div>
@@ -90,7 +90,7 @@
       <h1>Modeling</h1>
       <hr>
       <p>Steganography can be modeled as the prisioner's problem. Two steganographers communicating covertly over a public channel take the hole of the prisoners as agent(s) monitor the channel.</p>
-      <div style="display:flex; justify-content: center;">
+      <div style="display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center;">
         <img style="width: 90%; margin-top:10px;" alt="basic steganography model diagram" src="img/stg-base-model.png"/>
       </div>
     </section>
@@ -100,7 +100,7 @@
       <hr>
       <p>What makes steganography good?</p>
       <br>
-      <div style="display:flex; justify-content: space-between; flex-wrap: wrap;">
+      <div style="display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -ms-flex-wrap: wrap; flex-wrap: wrap;">
         <div style="width:30%;"> SECURITY <br> <img style="margin:30px 0 20px 0; width:30%" alt="security icon" src="img/src.png"/> <br> How easily the existence of steganography can be estimated</div>
         <div style="width:30%;"> CAPACITY <br> <img style="margin:30px 0 20px 0; width:30%" alt="capacity icon" src="img/cap.png"/> <br> How much information can be stored in a message</div>
         <div style="width:30%;"> IMPERCEPTIBILITY <br> <img style="margin:30px 0 20px 0; width:30%" alt="imperceptibility icon" src="img/imp.png"/> <br> How much perceptible distortion or noise was generated </div>
@@ -112,7 +112,7 @@
       <hr>
       <p>Steganography can be applied to any medium.</p>
       <br>
-      <div style="display:flex; justify-content: space-between;">
+      <div style="display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between;">
         <div style="width:30%;"> PHYSICAL <ul style="list-style-type:square"><li>written text</li><li>hairstyles</li><li>clothing</li><li>body movements</li><li>...</li></ul></div>
         <div style="width:30%;"> DIGITAL <ul style="list-style-type:square"><li>digital text</li><li>media encoding</li><li>mimic functions</li><li>content manipulation</li><li>...</li></ul> </div>
         <div style="width:30%;"> OTHERS  <ul style="list-style-type:square"><li>puzzles</li><li>naming of things</li><li>networks</li><li>intentional mistakes</li><li>...</li></ul> </div>
@@ -125,7 +125,7 @@
       <hr>
       <p>One of the most well known methods of digital steganography, the LSB (least significant bit) method consists of using the last bit of each color channel of an image to store information.</p>
       <p>It's easy to understand and implement, can be used with any image format and has high capacity, but is also easy to detect and the chances of failure are high.</p>
-      <div style="display:flex; justify-content: center;">
+      <div style="display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center;">
         <img style="width: 90%; margin-top:30px;" alt="lsb example" src="img/lsb.png"/>
       </div>
     </section>
@@ -135,7 +135,7 @@
       <hr>
       <p>Similar to the LSB method, but not so susceptible to failure due to the fact that image manipulations does not affect the hidden message. </p>
       <p>As can be noted, this technique will only work on black and white pictures.</p>
-      <div style="display:flex; justify-content: center;">
+      <div style="display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center;">
         <img style="width: 80%; margin-top:30px;" alt="lsb example" src="img/fsb.png"/>
       </div>
     </section>
@@ -145,7 +145,7 @@
       <hr>
       <p>Such methods use domain manipulation to hide messages with high capacity, security and robustness.</p>
       <br>
-      <div style="display:flex; justify-content: center;">
+      <div style="display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center;">
         <div> <img style="height:200px;" alt="cow drawing" src="img/cow.png"/> <br></div>
         <div style="margin:40px 70px auto 70px;"> <img style="width:100px" alt="arrow icon" src="img/arrow.png"/> <br></div>
         <div > <img style="height:200px;" alt="frequency domain cow" src="img/sdt.png"/> </div>
@@ -159,7 +159,7 @@
       <hr>
       <p>We covered the basics of digital image staganography. Both steganography and steganalysis compete in an everlasting race with modern techniques, software and ongoing research.</p>
       <br>
-      <div style="display:flex; justify-content: space-around; flex-wrap: wrap;">
+      <div style="display:-webkit-box; display:-ms-flexbox; display:flex; -ms-flex-pack: distribute; justify-content: space-around; -ms-flex-wrap: wrap; flex-wrap: wrap;">
         <div style="margin-right:50px; width: 600px">
           <p>LSB, BPCS, Stochastic Modulation, PVD, MBNS, QIM/DM, Jsteg, F5, OG, MB and YASS are all some of the steganographic methods developed and studied for steganography in JPEG images.</p>
           <p>The image demonstrates random partioning of the image used by YASS(Yet Another Steganographic Scheme - that resists blind steganalysis) to promove imperceptibility.</p>
@@ -172,7 +172,7 @@
       <h1>FUN: THE MISTERY OF CICADA 3307</h1>
       <hr>
       <br>
-      <div style="display:flex; justify-content: space-around; flex-wrap: wrap;">
+      <div style="display:-webkit-box; display:-ms-flexbox; display:flex; -ms-flex-pack: distribute; justify-content: space-around; -ms-flex-wrap: wrap; flex-wrap: wrap;">
         <div > <img style="box-shadow: 0rem 1px 5px 1px #0c7b46, 0rem 1px 5px 3px #14fdce; margin-top:30px" alt="cicada mystery modified image" src="img/cicada.png"/> </div>
         <div style="width: 700px;">
           <ul style="list-style-type:square">
@@ -204,7 +204,7 @@
       <p>Awesome! You made it to the end. Here are some links for you:</p>
       <hr>
       <br><br>
-      <div style="display:flex; flex-wrap: wrap;">
+      <div style="display:-webkit-box; display:-ms-flexbox; display:flex; -ms-flex-wrap: wrap; flex-wrap: wrap;">
         <div class="portrait">
           <img style="width: 175px" src="img/face.png" alt="my ugly face"></img>
         </div>
