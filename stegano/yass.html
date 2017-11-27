@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <title>CryptoStego - YASS Version - by @pboueke</title>
+  <meta name="description" content="Presentation for the CryptoStego YASS library">
+  <meta name="keywords" content="cryptostego, steganography, steganographic, yass, pboueke">
+  <meta name="author" content="Pedro Boueke">
+
+  <!-- Required stylesheet -->
+  <link rel="stylesheet" media="screen" href="../deck/core/deck.core.css">
+  <link rel="stylesheet" media="screen" href="yass.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Ultra" rel="stylesheet">
+
+  <!-- Extension CSS files go here. Remove or add as needed. -->
+  <link rel="stylesheet" media="screen" href="../deck/extensions/goto/deck.goto.css">
+  <link rel="stylesheet" media="screen" href="../deck/extensions/menu/deck.menu.css">
+  <link rel="stylesheet" media="screen" href="../deck/extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="../deck/extensions/scale/deck.scale.css">
+
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="../deck/themes/transition/fade.css">
+
+  <!-- Basic black and white print styles -->
+  <link rel="stylesheet" media="print" href="../deck/core/print.css">
+
+  <!-- Required Modernizr file -->
+  <script src="../deck/modernizr.custom.js"></script>
+</head>
+<body>
+<canvas class="waves"></canvas>
+  <div class="deck-container frame output">
+
+    <section class="slide">
+        <div class="title">CryptoStego - YASS</div>
+        <hr>
+        <p>
+            <a href="https://pboueke.github.io/CryptoStego/">CryptoStego YASS</a> is a fork of the popular 
+            <a href="http://stego.js.org/">CryptoStego</a> steganographic JavaScript library by Jeffer Zhao. This project 
+            extends the original scope by implementing a new steganographic method alongside the usual
+            2D DCT hiding inside JPEG images, greatly inspired by the YASS method, proposed here:
+        </p>
+        <blockquote>
+            Solanki, K & Sarkar, Anindya & Manjunath, B. (2007). <b>YASS: Yet Another Steganographic 
+            Scheme That Resists Blind Steganalysis.</b> Lect Notes Comput Sci. 2939. 16-31. 10.1007/978-3-540-77370-2_2.
+        </blockquote>
+        <div class="author"> Presentation by <a href="https://pboueke.github.io"> Pedro Boueke</a>, November 2017  </div>
+    </section>
+
+    <section class="slide">
+        <div class="title">CryptoStego</div>
+
+        <blockquote>
+            JS library for steganography with encryption - 
+            Hide text in an image with encryption and obfuscation. Support least significant bit mode and DCT mode.
+        </blockquote>
+        <ul>
+            <li>Obfuscation - Random initialization of invalid bits</li>
+            <li>Non-linear bit-by-bit message storage</li>
+            <li>Valid bits and their order decided by SHA512-based hash function</li>
+            <li>Password decides the parameter in hash function. Different passwords map message to different locations in the image</li>
+            <li>No signal for password error. Wrong password results in wrong message</li>
+            <li>LSB (Least Significant Bit) mode
+            <ul>
+                <li>Use least significant bits of RGB channels of each pixel to store message</li>
+                <li>Resulting image is visually identical to original one</li>
+                <li>Can only be stored in non-compressed format such as PNG</li>
+            </ul>
+            </li>
+            <li><b>DCT (Discrete cosine transform) mode ~ our focus</b>
+            <ul>
+                <li>Store information by slightly changing lowest frequency component of each block in frequency domain</li>
+                <li>Robust to image compression but stores less data compared to LSB mode</li>
+                <li>Resulting image looks different from original one</li>
+            </ul>
+        </ul>
+        <div class="author"> As seen <a href="https://github.com/zeruniverse/CryptoStego"> here</a>.</div>        
+            
+    </section>
+
+    <section class="slide">
+
+            <div class="title">2D DCT</div>
+            
+            <p>The Discrete Cosine Transform is usually used for video and image compression. <b>2D NxN</b> blocks are quantized and entropy encoded,
+                and the lowest frequencies can be enterely removed.
+            </p>
+            <p>
+                For our use case, we can overwrite the lowest frequencies with data and them recover the data with the inverse transform.
+                This is a usual application of the DCT for steganographic purposes, and is particularly useful for its robustness against
+                compression.
+            </p>
+            <p>
+                But how it is actually done? And how are we doing it?
+            </p>
+      
+    </section>
+
+    <section class="slide">
+
+        <div class="title" style="margin-bottom:20px;">DCT JPEG Steganography</div>
+
+        <img src="https://pboueke.github.io/CryptoStego/img/2ddctstg.png"/>
+
+        <p>
+            Usual implementations, such as the one used by CryptoStego, apply the transform at the 8x8 pixel blocks used
+            by the JPEG grid. Note that we are not worring about entropy encoding, we are just hiding the data at the lowest
+            frequencies of the DCT transform results for each block. Let us now take a better look into this process.
+        </p>
+            
+    </section>
+
+    <section class="slide">
+        <div class="title" style="margin-bottom:30px;">RGB and YCbCr?</div>
+        <div style="display: flex; justify-content: space-evenly;">
+            <img src="img/RGB.GIF"/>
+            <img src="img/YCbCr.GIF"/>
+        </div>
+        <p>
+            Converting from RGB to YCbCr allows us to write data in the Y (luma) component through a simple coordinate transformation
+            with the objective of causing less perceptible distortion. <a style="font-size: 15px" href="https://en.wikipedia.org/wiki/YCbCr">*images</a>
+        </p>
+        <img src="img/ccd.png"/>
+    </section>
+
+    <section class="slide">
+
+            <div class="title">JPEG Embedding</div>
+
+            <p>
+                Each of the 8x8 blocks of the JPEG grid is then transformed and quantized using the DCT. At this state, we can 
+                remove the lowest frequent components, or overwrite them with data (which usually causes more distortion). For
+                CryptoStego, we are just writing a bit at the end of each component, deciding our embedding capacity by a parameter 
+                "lim" (which is basically much difference between a bit '0' and a bit '1' should be reflected on the image).
+            </p>
+
+            <p>
+                Before embedding, however, we are also using a password to obfuscate the message. The password is used at a SHA512 hash function
+                multiple times to reorder the message binary data. The message is also replicated a "copy" (one of the available parameters) number
+                of times.
+            </p>
+            
+    </section>
+
+    <section class="slide">
+
+        <img class="flower" src="https://pboueke.github.io/CryptoStego/img/original.jpeg"/>
+        <p style="margin: 10px 50px 10px 50px;">
+            Original JPEG image (above) and stego image (below). Parameters: "copy":5, "lim":30, "message":"hey there", "password":"123".
+            Typical DCT noise of high JPEG compression rates can be clearly seen. We could decrease the distortion by decreasing the compression
+            robustness level, changing the paramenters.
+        </p>
+        <img class="flower" src="https://pboueke.github.io/CryptoStego/img/result_0_dct.jpg"/>
+            
+    </section>
+
+    <section class="slide">
+            
+    </section>
+
+    <section class="slide">
+            
+    </section>
+
+    <div class="piece scanlines noclick"></div>
+    <div class="piece glow noclick"></div>
+
+    <!-- End slides. -->
+
+    <!-- Begin extension snippets. Add or remove as needed. -->
+
+    <!-- deck.navigation snippet -->
+    <div aria-role="navigation">
+      <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+      <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    </div>
+
+    <!-- deck.goto snippet -->
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+  </div>
+
+  <!--<div class="pres-author"> Presentation by <a href="https://pboueke.github.io"> Pedro Boueke</a>, September 2017  </div>-->
+
+<!-- Required JS files. -->
+<script src="../deck/jquery.min.js"></script>
+<script src="../deck/core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="../deck/extensions/menu/deck.menu.js"></script>
+<script src="../deck/extensions/goto/deck.goto.js"></script>
+<script src="../deck/extensions/navigation/deck.navigation.js"></script>
+<script src="../deck/extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+
+
+    // WAVES, by Hakim El Hattab  (awesome work and codepen profile btw)
+    /*Copyright (c) Hakim El Hattab - https://codepen.io/hakimel/pen/ZOrvQV
+
+    Permission is hereby granted, free of charge, to any person 
+    obtaining a copy of this software and associated documentation 
+    files (the "Software"), to deal in the Software without restriction,
+    including without limitation the rights to use, copy, modify, 
+    merge, publish, distribute, sublicense, and/or sell copies of 
+    the Software, and to permit persons to whom the Software is 
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall 
+    be included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
+    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+    DEALINGS IN THE SOFTWARE.*/
+
+    const canvas = document.querySelector( 'canvas' );
+    const context = canvas.getContext( '2d' );
+
+    const lines = [];
+
+    const colors = [[ '#4f3a4b', '#e55256' ]];
+
+    var colorIndex = -1;
+
+    var step = 0,
+        width = 0,
+        height = 0;
+
+    document.ontouchstart = color;
+    window.onresize = setup;
+
+    setup();
+    color();
+    update();
+
+    function setup() {
+    
+    width = window.innerWidth,
+    height = window.innerHeight;
+
+    lines.length = 0;
+    
+    let lineCount = height / 26;
+    let pointCount = 14;
+    let spacingH = width / pointCount;
+    let spacingV = height / lineCount;
+    
+    for( let v = 0; v < lineCount; v++ ) {
+
+        let line = { points: [], ran: 0.2 + Math.random() * 0.7 };
+
+        for( let h = 0; h < pointCount; h++ ) {
+        line.points.push( {
+            nx: h * spacingH,
+            ny: v * spacingV
+        } );
+        }
+        
+        line.points.push( {
+        nx: width + spacingH,
+        ny: v * spacingV
+        } );
+        
+        lines.push( line );
+        
+    }
+    
+    }
+
+    function color() {
+
+    colorIndex = ( ++colorIndex ) % colors.length;
+    canvas.style.backgroundColor = colors[colorIndex][0];
+
+    }
+
+    function update() {
+
+    step += 0.8;
+    
+    canvas.width = width;
+    canvas.height = height;
+
+    context.clearRect( 0, 0, width, height );
+    
+    context.lineWidth = 2;
+    context.strokeStyle = colors[colorIndex][1];
+    context.fillStyle = colors[colorIndex][0];
+    
+    lines.forEach( ( line, v ) => {
+        
+        context.beginPath();
+        
+        line.points.forEach( ( point, h ) => {
+        
+        point.x = point.nx,
+        point.y = point.ny + Math.sin( ( point.x * line.ran + ( step + point.ny ) ) / 40 ) * ( 6 + ( point.ny / height * 34 ) );
+        
+        } );
+        
+        line.points.forEach( ( point, h ) => {
+        
+        let nextPoint = line.points[ h + 1 ];
+        
+        if( h === 0 ) {
+            context.moveTo( point.x, point.y );
+        }
+        else if( nextPoint ) {
+            let cpx = point.x + ( nextPoint.x - point.x ) / 2;
+            let cpy = point.y + ( nextPoint.y - point.y ) / 2;
+            context.quadraticCurveTo( point.x, point.y, cpx, cpy );
+        }
+        
+        } );
+        
+        context.stroke();
+        
+        context.lineTo( width, height );
+        context.lineTo( 0, height );
+        context.closePath();
+        context.fill();
+        
+    } );
+
+    requestAnimationFrame( update );
+
+    }
+
+    // deck js
+    $(function() {
+        $.deck('.slide');
+    });
+
+    // google analytics
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-63582989-1', 'auto');
+        ga('send', 'pageview');
+</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+/*
+font-family: 'Ultra', serif;
+font-family: 'Open Sans', sans-serif;
+*/
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  background-color: #fff;
+}
+
+canvas {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.waves {
+    position: absolute;
+    z-index: 1;
+}
+
+.deck-container {
+    max-width: 1200px !important;
+    max-height: 800px !important;
+    width: 800px;
+    margin: 30px auto 30px auto;
+    min-height: auto !important;
+    left: auto !important;
+    z-index: 2;
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.4);
+    color: #4f3a4b;
+}
+
+.slide > *, deck-slide-scaler {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slide {
+    text-align: center;
+}
+
+.title {
+    font-family: 'Ultra', serif;
+    font-size: 40px;
+    margin: 60px auto auto auto;
+    color: #e55256;
+}
+
+hr {
+    margin: 40px 60px 40px 60px;
+    border-width: 4px 0 0 0;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    color: #4f3a4b;
+    margin: 40px 50px 40px 50px;
+    font-size: 24px;
+}
+
+p + p {
+    margin-top: auto;
+}
+
+ul {
+    font-family: 'Open Sans', sans-serif;
+    color: #4f3a4b;
+    margin: 30px 50px 30px 50px;
+    text-align: left;
+    font-size: 18px;
+}
+li > ul {
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: #e55256;
+    font-weight: 600;
+}
+
+blockquote {
+    background: #f9f9f9;
+    margin: 40px 60px 30px 60px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+    font-size: 24px;
+}
+
+blockquote:before {
+    color: #e55256;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+blockquote p {
+    display: inline;
+}
+
+.author {
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+img {
+    border-radius:12px;
+}
+
+.flower {
+    margin: 20px 30px 20px 30px;
+    width: 80%;
+}
