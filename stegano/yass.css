@@ -118,7 +118,15 @@ img {
     border-radius:12px;
 }
 
+.gif {
+    margin: auto 30px auto 30px;
+}
+
 .flower {
     margin: 20px 30px 20px 30px;
     width: 80%;
+}
+
+.app {
+    width: 100%;
 }

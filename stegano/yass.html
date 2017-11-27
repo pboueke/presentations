@@ -104,7 +104,7 @@
 
         <div class="title" style="margin-bottom:20px;">DCT JPEG Steganography</div>
 
-        <img src="https://pboueke.github.io/CryptoStego/img/2ddctstg.png"/>
+        <img src="img/2ddctstg.png"/>
 
         <p>
             Usual implementations, such as the one used by CryptoStego, apply the transform at the 8x8 pixel blocks used
@@ -117,8 +117,8 @@
     <section class="slide">
         <div class="title" style="margin-bottom:30px;">RGB and YCbCr?</div>
         <div style="display: flex; justify-content: space-evenly;">
-            <img src="img/RGB.GIF"/>
-            <img src="img/YCbCr.GIF"/>
+            <img class="gif" src="img/RGB.GIF"/>
+            <img class="gif" src="img/YCbCr.GIF"/>
         </div>
         <p>
             Converting from RGB to YCbCr allows us to write data in the Y (luma) component through a simple coordinate transformation
@@ -129,32 +129,77 @@
 
     <section class="slide">
 
-            <div class="title">JPEG Embedding</div>
+        <div class="title">JPEG Embedding</div>
 
-            <p>
-                Each of the 8x8 blocks of the JPEG grid is then transformed and quantized using the DCT. At this state, we can 
-                remove the lowest frequent components, or overwrite them with data (which usually causes more distortion). For
-                CryptoStego, we are just writing a bit at the end of each component, deciding our embedding capacity by a parameter 
-                "lim" (which is basically much difference between a bit '0' and a bit '1' should be reflected on the image).
-            </p>
+        <p>
+            Each of the 8x8 blocks of the JPEG grid is then transformed and quantized using the DCT. At this state, we can 
+            remove the lowest frequent components, or overwrite them with data (which usually causes more distortion). For
+            CryptoStego, we are just writing a bit at the end of each component, deciding our embedding capacity by a parameter 
+            "lim" (which is basically much difference between a bit '0' and a bit '1' should be reflected on the image).
+        </p>
 
-            <p>
-                Before embedding, however, we are also using a password to obfuscate the message. The password is used at a SHA512 hash function
-                multiple times to reorder the message binary data. The message is also replicated a "copy" (one of the available parameters) number
-                of times.
-            </p>
+        <p>
+            Before embedding, however, we are also using a password to obfuscate the message. The password is used at a SHA512 hash function
+            multiple times to reorder the message binary data. The message is also replicated a "copy" (one of the available parameters) number
+            of times.
+        </p>
             
     </section>
 
     <section class="slide">
 
-        <img class="flower" src="https://pboueke.github.io/CryptoStego/img/original.jpeg"/>
+        <img class="flower" src="img/original.jpeg"/>
         <p style="margin: 10px 50px 10px 50px;">
             Original JPEG image (above) and stego image (below). Parameters: "copy":5, "lim":30, "message":"hey there", "password":"123".
             Typical DCT noise of high JPEG compression rates can be clearly seen. We could decrease the distortion by decreasing the compression
             robustness level, changing the paramenters.
         </p>
-        <img class="flower" src="https://pboueke.github.io/CryptoStego/img/result_0_dct.jpg"/>
+        <img class="flower" src="img/result_0_dct.jpg"/>
+            
+    </section>
+
+    <section class="slide">
+
+        <div class="title">YASS Method</div>
+        
+        <img src="img/yasslikestg.png"/>
+
+        <p>
+            The method proposed in the cited paper consists basically of hiding the data in 8x8 pseudo-randomly located blocks, each inside larger BxB blocks.
+            This simple difference is proven to yield better results in resisting blind steganalysis as of 2007.
+        </p>
+    </section>
+
+    <section class="slide">
+
+        <div class="title">Implemented Method</div>
+
+        <p>
+            Keeping a very simillar approach to the original CryptoStego, the new version add a B block size parameter and
+            uses the original password to deterministically seed a pseudo random number generator to choose the smaller block 
+            locations inside each B block component of the image, effectively using the same logic to embbed and read the 
+            message from the stego image.
+        </p>
+
+        <p>
+            Instead of following the JPEG encoder ZigZag pattern, it also (same as the CryptoStego DCT method) serially embed the data into the DCT results 
+            and then writes it to the image. Another point of notice is that the method does not implement any other compression techniques, such as entropy 
+            encoding, which may cause a increase in the image file.
+        </p>
+            
+    </section>
+
+    <section class="slide">
+
+            <div class="title">Show, Don't Tell</div>
+
+            <p>
+                Before getting into, <a href="https://pboueke.github.io/CryptoStego/">here is a link</a> for you to test it for 
+                yourself in the static web demo. Also, a link to the <a href="https://github.com/pboueke/CryptoStego">
+                repository</a>, if that is your thing.
+            </p>
+
+            <img class="app" src="img/app.png"/>
             
     </section>
 
@@ -162,6 +207,34 @@
             
     </section>
 
+    <section class="slide">
+            
+    </section>
+
+    <section class="slide">
+            
+    </section>
+
+    <section class="slide">
+            
+    </section>
+
+    <section class="slide">
+            
+    </section>
+
+    <section class="slide">
+            
+    </section>
+
+    <section class="slide">
+            
+    </section>
+
+    <section class="slide">
+            
+    </section>
+    
     <section class="slide">
             
     </section>
