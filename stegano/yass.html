@@ -40,9 +40,9 @@
         <hr>
         <p>
             <a href="https://pboueke.github.io/CryptoStego/">CryptoStego YASS</a> is a fork of the popular 
-            <a href="http://stego.js.org/">CryptoStego</a> steganographic JavaScript library by Jeffer Zhao. This project 
+            <a href="http://stego.js.org/">CryptoStego</a> steganographic JavaScript library by Jeffery Zhao. This project 
             extends the original scope by implementing a new steganographic method alongside the usual
-            2D DCT hiding inside JPEG images, greatly inspired by the YASS method, proposed here:
+            2D DCT data hiding inside JPEG images, greatly inspired by the YASS method, proposed here:
         </p>
         <blockquote>
             Solanki, K & Sarkar, Anindya & Manjunath, B. (2007). <b>YASS: Yet Another Steganographic 
@@ -86,8 +86,9 @@
 
             <div class="title">2D DCT</div>
             
-            <p>The Discrete Cosine Transform is usually used for video and image compression. <b>2D NxN</b> blocks are quantized and entropy encoded,
-                and the lowest frequencies can be enterely removed.
+            <p>
+                The Discrete Cosine Transform is usually used for video and image compression. <b>2D NxN</b> blocks are quantized and entropy encoded,
+                and the lowest frequencies can be entirely removed.
             </p>
             <p>
                 For our use case, we can overwrite the lowest frequencies with data and them recover the data with the inverse transform.
@@ -108,7 +109,7 @@
 
         <p>
             Usual implementations, such as the one used by CryptoStego, apply the transform at the 8x8 pixel blocks used
-            by the JPEG grid. Note that we are not worring about entropy encoding, we are just hiding the data at the lowest
+            by the JPEG grid. Note that we are not worrying about entropy encoding, we are just hiding the data at the lowest
             frequencies of the DCT transform results for each block. Let us now take a better look into this process.
         </p>
             
@@ -152,7 +153,7 @@
         <p style="margin: 10px 50px 10px 50px;">
             Original JPEG image (above) and stego image (below). Parameters: "copy":5, "lim":30, "message":"hey there", "password":"123".
             Typical DCT noise of high JPEG compression rates can be clearly seen. We could decrease the distortion by decreasing the compression
-            robustness level, changing the paramenters.
+            robustness level, changing the parameters.
         </p>
         <img class="flower" src="img/result_0_dct.jpg"/>
             
@@ -177,7 +178,7 @@
         <p>
             Keeping a very simillar approach to the original CryptoStego, the new version add a B block size parameter and
             uses the original password to deterministically seed a pseudo random number generator to choose the smaller block 
-            locations inside each B block component of the image, effectively using the same logic to embbed and read the 
+            locations inside each B block component of the image, effectively using the same logic to embed and read the 
             message from the stego image.
         </p>
 
@@ -194,7 +195,7 @@
             <div class="title">Show, Don't Tell</div>
 
             <p>
-                Before getting into, <a href="https://pboueke.github.io/CryptoStego/">here is a link</a> for you to test it for 
+                Before getting into the results, <a href="https://pboueke.github.io/CryptoStego/">here is a link</a> for you to test it for 
                 yourself in the static web demo. Also, a link to the <a href="https://github.com/pboueke/CryptoStego">
                 repository</a>, if that is your thing.
             </p>
@@ -204,39 +205,90 @@
     </section>
 
     <section class="slide">
+
+        <div class="title">Show, Don't Tell</div>
+
+        <img class="flower" src="img/result_0_yass.jpg"/>
+
+        <p>
+            See here the result for the same parameters as before, and B size 11. We can notice the distorted 8x8 blocks. The 
+            distortion seen here is in the same level as the one seen by the standard DCT steganography, but is more noticeable
+            as it can't be confused by the usual compression caused distortions in JPEG images. By varying the robustness level, 
+            we can get quite distinct results.
+        </p>
             
     </section>
 
     <section class="slide">
             
+        <img class="flower" src="img/result_5_yass.jpg"/>
+        <p style="margin: 10px 50px 10px 50px;">
+            High robustness (above ~ lim:50) versus high secrecy (below ~ lim:10) examples for B size 11.
+        </p>
+        <img class="flower" src="img/result_c1_yass.jpg"/>
+
+    </section>
+
+    <section class="slide">
+
+            <img class="flower" src="img/result_0_yass_b8.jpg"/>
+            <p style="margin: 10px 50px 10px 50px;">
+                Keeping the same robustness level, we can also get quite distinct results by changing the parameter B. With B 
+                at 8 (above), the minimum possible value, we get the exact same result as with the standard DCT method. With larger 
+                B values, we get more secrecy, at a decreased capacity cost (below, with B at 16).
+            </p>
+            <img class="flower" src="img/result_0_yass_b16.jpg"/>
+            
     </section>
 
     <section class="slide">
             
+        <div class="title">Finally</div>
+
+        <p>
+            By increasing the complexity and randomness of the original DCT steganographic method, intuitively,
+            this porposition makes it more secure and of harder detection. The original paper where the YASS method is proposed shows that
+            this simple change greatly improves its chance of not being detected by steganalysis of the time.
+        </p>
+
+        <p>
+            Steganalysis, however, has come a long way since 2007, and this project does not claim to have faithfully reproduced
+            the original proposition, and, is instead, greatly inspired by it. Further work should be put into it to validate
+            its effectiveness both in robustness to compression and steganalysis resistance.
+        </p>
+
     </section>
 
     <section class="slide">
-            
-    </section>
 
-    <section class="slide">
-            
-    </section>
+            <div class="title">Thanks!</div>
 
-    <section class="slide">
-            
-    </section>
+            <p>
+                Here are some links for you:
+            </p>
 
-    <section class="slide">
-            
-    </section>
+            <ul class="thanks">
+                <li>
+                    <a href="https://github.com/pboueke">pboueke</a> @ github
+                </li>
+                <li>
+                    my <a href="https://pboueke.github.io/presentations/stegano/pres.html">introductory presentation on steganography</a> and
+                    <a href="https://github.com/pboueke/presentations"> more</a>
+                </li>
+                <li>
+                    <a href="https://pboueke.github.io/CryptoStego/">web app/demo</a> where you can use the method to hide your secrets
+                </li>
+                <li>
+                    my <a href="https://pboueke.github.io/">landing page</a>
+                </li>
+                <li>
+                    <a href="https://github.com/pboueke/CryptoStego">repository with the code</a> and the <a href="http://stego.js.org/">
+                    original project</a>, by <a href="https://github.com/zeruniverse">zeruniverse</a>
+                </li>
+            </ul>
 
-    <section class="slide">
-            
-    </section>
-    
-    <section class="slide">
-            
+            <div class="author"> Presentation by <a href="https://pboueke.github.io"> Pedro Boueke</a>, November 2017  </div>            
+        
     </section>
 
     <div class="piece scanlines noclick"></div>

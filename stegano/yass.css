@@ -130,3 +130,12 @@ img {
 .app {
     width: 100%;
 }
+
+.thanks {
+    list-style-type: circle;
+}
+
+.thanks > li {
+    margin: 15px;
+    font-size: 20px;
+}

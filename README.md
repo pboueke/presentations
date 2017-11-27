@@ -3,6 +3,7 @@
 ## Using deck js
 
 * [Steganography - a quick introduction](https://pboueke.github.io/presentations/stegano/pres.html)
+* [CryptoStego - YASS](https://pboueke.github.io/presentations/stegano/yass.html)
 
 ## Using impress js
 
