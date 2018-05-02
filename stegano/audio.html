@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <title>Steganography - a quick introducion by @pboueke</title>
+
+  <!-- Required stylesheet -->
+  <link rel="stylesheet" media="screen" href="../deck/core/deck.core.css">
+  <link rel="stylesheet" media="screen" href="pres.css">
+
+  <!-- Extension CSS files go here. Remove or add as needed. -->
+  <link rel="stylesheet" media="screen" href="../deck/extensions/goto/deck.goto.css">
+  <link rel="stylesheet" media="screen" href="../deck/extensions/menu/deck.menu.css">
+  <link rel="stylesheet" media="screen" href="../deck/extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="../deck/extensions/scale/deck.scale.css">
+
+  <!-- Style theme. More available in /themes/style/ or create your own. -->
+  <!--<link rel="stylesheet" media="screen" href="../deck/themes/style/swiss.css">-->
+
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="../deck/themes/transition/fade.css">
+
+  <!-- Basic black and white print styles -->
+  <link rel="stylesheet" media="print" href="../deck/core/print.css">
+
+  <!-- Required Modernizr file -->
+  <script src="../deck/modernizr.custom.js"></script>
+</head>
+<body class="noisy">
+  <div class="deck-container frame output">
+
+    <section class="slide">
+      <h1 class="main-title">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;d888888o.&nbsp;8888888&nbsp;8888888888&nbsp;8&nbsp;8888888888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,o888888o.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,o888888o.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,o888888o.&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;888888888o.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;888888888o&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;`8.`8888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,8'&nbsp;
+        &nbsp;.`8888:'&nbsp;`88.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`88.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;888o.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;.&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`88.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`88.&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;`88.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;`88.&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;`8.`8888.&nbsp;&nbsp;&nbsp;&nbsp;,8'&nbsp;&nbsp;
+        &nbsp;8.`8888.&nbsp;&nbsp;&nbsp;Y8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:88888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Y88888o.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;,8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8b&nbsp;&nbsp;,8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8.&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`88&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:88888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`88&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;`8.`8888.&nbsp;&nbsp;,8'&nbsp;&nbsp;&nbsp;
+        &nbsp;`8.`8888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;88&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;`88888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.`Y888888o.&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;88&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8b&nbsp;88&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,88&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;`88888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,88&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;`8.`8888.,8'&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;`8.`8888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;888888888888&nbsp;88&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.8.&nbsp;`88888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8o.&nbsp;`Y888888o.&nbsp;8&nbsp;88&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;88&nbsp;88&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888.&nbsp;&nbsp;&nbsp;,88'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.8.&nbsp;`88888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888.&nbsp;&nbsp;&nbsp;,88'&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8.`88888'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;`8.`8888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;88&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.8`8.&nbsp;`88888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8`Y8o.&nbsp;`Y88888o8&nbsp;88&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;88&nbsp;88&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;888888888P'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.8`8.&nbsp;`88888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;888888888P'&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8.&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;`8.`8888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;88&nbsp;8888&nbsp;&nbsp;&nbsp;8888888&nbsp;.8'&nbsp;`8.&nbsp;`88888.&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;`Y8o.&nbsp;`Y8888&nbsp;88&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,8P&nbsp;88&nbsp;8888&nbsp;&nbsp;&nbsp;8888888&nbsp;8&nbsp;8888`8b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.8'&nbsp;`8.&nbsp;`88888.&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888888888888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        8b&nbsp;&nbsp;&nbsp;`8.`8888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.8'.8'&nbsp;&nbsp;&nbsp;`8.&nbsp;`88888.&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Y8o.&nbsp;`Y8&nbsp;`8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,8P&nbsp;&nbsp;`8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.8'&nbsp;8&nbsp;8888&nbsp;`8b.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.8'&nbsp;&nbsp;&nbsp;`8.&nbsp;`88888.&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        `8b.&nbsp;&nbsp;;8.`8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,88'.888888888.&nbsp;`88888.&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Y8o.`&nbsp;&nbsp;`&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,88'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,88'&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;`8b.&nbsp;&nbsp;&nbsp;&nbsp;.888888888.&nbsp;`88888.&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;`Y8888P&nbsp;,88P'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;888888888888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8888888P'&nbsp;.8'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8.&nbsp;`88888.&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Yo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8888888P'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8888888P'&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`88.&nbsp;.8'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8.&nbsp;`88888.&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </h1>
+      <br><br>
+      <p> A quick introduction to steganography and a proposal to the Voice Processing course group project.</p>
+      <hr>
+      <br>
+      <div style = "position: absolute; margin-bottom: 0;">
+        UFRJ - EEL816  -  MAY 2018
+      </div>
+      <div style = "position: absolute; margin-top: 50px;">
+        <a href="https://github.com/hieifn"> IGOR NASCIMENTO</a> - <a href="https://pboueke.github.io">PEDRO BOUEKE</a> - <a href="https://github.com/pedroeusebio">PEDRO EUSÉBIO</a> - <a href="https://github.com/yagoocarvalho">YAGO CARVALHO</a>
+      </div>
+    </section>
+
+    <section class="slide ">
+      <h1>Definition</h1>
+      <hr>
+      <p>As seen in [1]:<p>
+      <blockquote> Steganography and steganalysis are important topics in information hiding.
+      Steganography refers to the technology of hiding data into digital media without drawing
+      any suspicion, while steganalysis is the art of detecting the presence of steganography.
+      </blockquote>
+      <p>And on <a href="https://en.wikipedia.org/wiki/Steganography"> Wikipedia</a>:<p>
+      <blockquote>
+        Steganography is the practice of concealing a file, message, image, or video within another file, message, image, or video.
+        The word steganography combines the Greek words steganos, meaning "covered, concealed, or protected," and graphein meaning "writing".
+      </blockquote>
+
+    </section>
+
+    <section class="slide">
+      <h1>CRYPTOGRAPHY</h1>
+      <hr>
+      <p>Steganography focuses on the concealment of the fact that the message is beign sent as well as concealing its content.</p>
+      <br>
+      <p>Considering the example below, which would be more likely to be ignored in a monitored medium, the cipher text or the image?</p>
+      <br>
+      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;">
+        <div style="width:30%;"> Message: <br><br>HELLO WORLD</div>
+        <div style="width:30%;"> Ciphertext: <br><br>AYE4jnEpKaYsuDE=</div>
+        <div style="width:30%;"> Hidden text: <br><br><img style="width: 175px" src="img/cow.png" alt="image containing the message HELLO WORLD"></img></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h1>Modeling</h1>
+      <hr>
+      <p>Steganography can be modeled as the prisioner's problem. Two steganographers communicating covertly over a public channel take the hole of the prisoners as agent(s) monitor the channel.</p>
+      <div style="display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center;">
+        <img style="width: 90%; margin-top:10px;" alt="basic steganography model diagram" src="img/stg-base-model.png"/>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h1>Evaluating</h1>
+      <hr>
+      <p>What makes steganography good?</p>
+      <br>
+      <div style="display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -ms-flex-wrap: wrap; flex-wrap: wrap;">
+        <div style="width:30%;"> SECURITY <br> <img style="margin:30px 0 20px 0; width:30%" alt="security icon" src="img/src.png"/> <br> How easily the existence of steganography can be estimated</div>
+        <div style="width:30%;"> CAPACITY <br> <img style="margin:30px 0 20px 0; width:30%" alt="capacity icon" src="img/cap.png"/> <br> How much information can be stored in a message</div>
+        <div style="width:30%;"> IMPERCEPTIBILITY <br> <img style="margin:30px 0 20px 0; width:30%" alt="imperceptibility icon" src="img/imp.png"/> <br> How much perceptible distortion or noise was generated </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h1>Stego Objects</h1>
+      <hr>
+      <p>Steganography can be applied to any medium.</p>
+      <br>
+      <div style="display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between;">
+        <div style="width:30%;"> PHYSICAL <ul style="list-style-type:square"><li>written text</li><li>hairstyles</li><li>clothing</li><li>body movements</li><li>...</li></ul></div>
+        <div style="width:30%;"> DIGITAL <ul style="list-style-type:square"><li>digital text</li><li>media encoding</li><li>mimic functions</li><li>content manipulation</li><li>...</li></ul> </div>
+        <div style="width:30%;"> OTHERS  <ul style="list-style-type:square"><li>puzzles</li><li>naming of things</li><li>networks</li><li>intentional mistakes</li><li>...</li></ul> </div>
+      </div>
+      <p>There is a lot of research and interest in digital media. In this work, we'll be focusing in digital audio.</p>
+    </section>
+
+    <section class="slide">
+      <h1>AUDIO STEGANOGRAPHY</h1>
+      <hr>
+      <p></p>
+    </section>
+
+
+
+    <section class="slide">
+      <h1 class="main-title">
+8888888&nbsp;8888888888&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,88'&nbsp;&nbsp;&nbsp;d888888o.&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;888o.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;,88'&nbsp;&nbsp;.`8888:'&nbsp;`88.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:88888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Y88888o.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;,88'&nbsp;&nbsp;&nbsp;8.`8888.&nbsp;&nbsp;&nbsp;Y8&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;`88888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.`Y888888o.&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8&nbsp;8888&nbsp;&nbsp;,88'&nbsp;&nbsp;&nbsp;&nbsp;`8.`8888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.8.&nbsp;`88888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8o.&nbsp;`Y888888o.&nbsp;8&nbsp;8&nbsp;8888&nbsp;,88'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8.`8888.&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.8`8.&nbsp;`88888.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8`Y8o.&nbsp;`Y88888o8&nbsp;8&nbsp;8888&nbsp;88'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8.`8888.&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888888888888&nbsp;&nbsp;&nbsp;&nbsp;.8'&nbsp;`8.&nbsp;`88888.&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;`Y8o.&nbsp;`Y8888&nbsp;8&nbsp;888888<&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8.`8888.&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;.8'&nbsp;&nbsp;&nbsp;`8.&nbsp;`88888.&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Y8o.&nbsp;`Y8&nbsp;8&nbsp;8888&nbsp;`Y8.&nbsp;&nbsp;&nbsp;&nbsp;8b&nbsp;&nbsp;&nbsp;`8.`8888.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;.888888888.&nbsp;`88888.&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Y8o.`&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;`Y8.&nbsp;&nbsp;`8b.&nbsp;&nbsp;;8.`8888&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;.8'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8.&nbsp;`88888.&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Yo&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Y8.&nbsp;`Y8888P&nbsp;,88P'&nbsp;<br>
+      </h1>
+      <br><br>
+      <p>[1] <i>A survey on image steganography and steganalysis</i>. Journal of Information Hiding and Multimedia Signal Processing, 2(2), 2011. By Jiwu Huang, Yun Qing Shi, Bin Li, Junhui He</p>
+      <hr>
+      <br><br>
+
+    </section>
+
+    <div class="piece scanlines noclick"></div>
+    <div class="piece glow noclick"></div>
+
+    <!-- End slides. -->
+
+    <!-- Begin extension snippets. Add or remove as needed. -->
+
+    <!-- deck.navigation snippet -->
+    <div aria-role="navigation">
+      <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+      <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    </div>
+
+    <!-- deck.goto snippet -->
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+  </div>
+
+  <!--<div class="pres-author"> Presentation by <a href="https://pboueke.github.io"> Pedro Boueke</a>, September 2017  </div>-->
+
+<!-- Required JS files. -->
+<script src="../deck/jquery.min.js"></script>
+<script src="../deck/core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="../deck/extensions/menu/deck.menu.js"></script>
+<script src="../deck/extensions/goto/deck.goto.js"></script>
+<script src="../deck/extensions/navigation/deck.navigation.js"></script>
+<script src="../deck/extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+  $(function() {
+    $.deck('.slide');
+  });
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-63582989-1', 'auto');
+      ga('send', 'pageview');
+</script>
+</body>
+</html>
