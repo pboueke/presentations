@@ -119,16 +119,74 @@
         <div style="width:30%;"> DIGITAL <ul style="list-style-type:square"><li>digital text</li><li>media encoding</li><li>mimic functions</li><li>content manipulation</li><li>...</li></ul> </div>
         <div style="width:30%;"> OTHERS  <ul style="list-style-type:square"><li>puzzles</li><li>naming of things</li><li>networks</li><li>intentional mistakes</li><li>...</li></ul> </div>
       </div>
-      <p>There is a lot of research and interest in digital media. In this work, we'll be focusing in digital audio.</p>
+      <p>There is a lot of research and interest in digital media. In this work, we'll looking at digital audio.</p>
     </section>
 
     <section class="slide">
-      <h1>AUDIO STEGANOGRAPHY</h1>
+      <h1>AUDIO FILE FORMATS</h1>
       <hr>
-      <p></p>
+      <p>As in any type of data file, audio files can be found in different types and sizes. In regards to steganography, compression is one of the most importants aspects.</p>
+      <br>
+      <div style="display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between;">
+        <div style="width:30%;"> UNCOMPRESSED <ul style="list-style-type:square"><li>WAV</li><li>AIEF</li><li>...</li></ul></div>
+        <div style="width:30%;"> LOSSY <ul style="list-style-type:square"><li>Mp3</li><li>WMA</li><li>...</li></ul> </div>
+        <div style="width:30%;"> LOSELESS  <ul style="list-style-type:square"><li>ALAC</li><li>FIAC</li><li>...</li></ul> </div>
+      </div>
+      <p>Different types of compression require different types of steganographic methods, and may cause destructive interference on the retrieval of hidden information. Such is the case, that resistance to compression may be considered ad an important evaluation metric, which falls in the capacity of the steganographic method.</p>
     </section>
 
+    <section class="slide">
+      <h1>THE WAVE FORMAT</h1>
+      <hr>
+      <br>
+      <p>For this project, we will work with the WAVE (Waveform Audio File Format) file format, which is easy to work with and has widespread adoption.</p>
+      <br>
+      <div style="display:-webkit-box; display:-ms-flexbox; display:flex; -ms-flex-pack: distribute; justify-content: space-around; -ms-flex-wrap: wrap; flex-wrap: wrap;">
+        <div > <img style="margin-top:30px" alt="cicada mystery modified image" src="img/wav.png"/> </div>
+        <div style="width: 700px;">
+          <ul style="list-style-type:square; margin-top:60px;">
+            <li>Uncompressed, generating large files</li>
+            <li>Simple structure</li>
+            <li>One of the most popular audio formats</li>
+            <li>Windows default audio format</li>
+            <li>Developed by Microsoft and IBM</li>
+            <li>.wav file name extension</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
+    <section class="slide">
+      <h1>THE WAVE FORMAT <small>[2][3]</small></h1>
+      <hr>
+      <div style="text-align: center; margin-top: 10px;">
+        <img style="height: 70vh;" alt="canonical waveformat" src="img/canonicalwav.png"/>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h1>THE WAVE FORMAT <small>[2][3]</small></h1>
+      <hr>
+      <div style="text-align: center; margin-top: 10px;">
+        <img style="height: 70vh;" alt="canonical waveformat" src="img/wavedata.png"/>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h1>PROJECT: LSB WAVE STEGANOGRAPHY TOOL</h1>
+      <hr>
+      <br>
+      <div style="display:-webkit-box; display:-ms-flexbox; display:flex; -ms-flex-pack: distribute; justify-content: space-around; -ms-flex-wrap: wrap; flex-wrap: wrap;">
+          <div > <img style="margin-top:40px; width:300px;" alt="cicada mystery modified image" src="img/waveapp.png"/> </div>
+          <div style="width:700px;">
+            <ul style="list-style-type:square; margin-top:30px;">
+                <p> The group proposal for the course project consists in the <b>creation of an easy to use steganography tool for .wav audio files</b>, using the LSB steganographic method.</p>
+                <p> The LSB method is one of the most simple steganographic methods, and is very suitable for the WAVE format due to it being an uncompressed format of very simple structure.</p>
+            </ul>
+          </div>
+        </div>
+        <p>If successfull at the LSB method, the project also aims at studying and implementing different methods of steganography, such as the Spread Spectrum [4], which hides the data in the frequency domain, similar to 2D DCT steganography in images.</p>
+    </section>
 
     <section class="slide">
       <h1 class="main-title">
@@ -143,9 +201,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;.888888888.&nbsp;`88888.&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Y8o.`&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;`Y8.&nbsp;&nbsp;`8b.&nbsp;&nbsp;;8.`8888&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;.8'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`8.&nbsp;`88888.&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Yo&nbsp;8&nbsp;8888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Y8.&nbsp;`Y8888P&nbsp;,88P'&nbsp;<br>
       </h1>
-      <br><br>
-      <p>[1] <i>A survey on image steganography and steganalysis</i>. Journal of Information Hiding and Multimedia Signal Processing, 2(2), 2011. By Jiwu Huang, Yun Qing Shi, Bin Li, Junhui He</p>
+      <br>
+      <p>References:</p>
       <hr>
+      <p>[1] <i>A survey on image steganography and steganalysis</i>. Journal of Information Hiding and Multimedia Signal Processing, 2(2), 2011. By Jiwu Huang, Yun Qing Shi, Bin Li, Junhui He</p>
+      <p>[2] <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000001.shtml">WAVE Audio File Format</a>, Library of Congress</p>
+      <p>[3] <a href="http://soundfile.sapp.org/doc/WaveFormat/">WAVE PCM soundfile format</a>, soundfile++: A Soundfile Reading/Writing Library in C++</p>
+      <p>[4] <i>Hiding Data in Wave Files</i>.International Conference in Recent Trends in Information Technology and Computer Science (ICRTITCS - 2012). By Pushpa Aigal, Pramod Vasambekar.</p>
       <br><br>
 
     </section>
