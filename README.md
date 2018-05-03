@@ -4,7 +4,7 @@
 
 * Steganography Introduction
   * [A quick introduction to image steganography](https://pboueke.github.io/presentations/stegano/pres.html)
-  * [A quick introduction to WAVE audio steganography and project proposal](https://pboueke.github.io/presentations/stegano/pres.html)
+  * [A quick introduction to WAVE audio steganography and project proposal](https://pboueke.github.io/presentations/stegano/audio.html)
    
 * [CryptoStego - YASS](https://pboueke.github.io/presentations/stegano/yass.html)
 
