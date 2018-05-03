@@ -5,7 +5,7 @@
 
 * Steganography Introduction
   * [A quick introduction to image steganography](https://pboueke.github.io/presentations/stegano/pres.html)
-  * [A quick introduction to WAVE audio steganography and project proposal](https://pboueke.github.io/presentations/stegano/audio.html)
+  * [A quick introduction to steganography, the WAVE audio format and a project proposal](https://pboueke.github.io/presentations/stegano/audio.html)
    
 ## Using impress js
 
