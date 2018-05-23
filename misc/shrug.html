@@ -1,0 +1,155 @@
+<html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=1024" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <title>¯\_(ツ)_/¯</title>
+  
+      <meta name="description" content="¯\_(ツ)_/¯" />
+      <meta name="author" content="Pedro Boueke" />
+  
+      <link href="css/shrug.css" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Encode+Sans|Share+Tech+Mono" rel="stylesheet">
+    </head>
+    <body class="impress-not-supported">
+      <div class="fallback-message">
+          <p>Your browser <b>¯\_(ツ)_/¯</b> impress.js, so you are presented with ¯\_(ツ)_/¯</p>
+          <p>For the best ¯\_(ツ)_/¯ please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+      </div>
+      <ul>  
+        <li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li>
+        <li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li>
+        <li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li>
+        <li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li>
+        <li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li>
+        <li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li>
+        <li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li>
+        <li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li>
+        <li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li>
+        <li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li>
+        <li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li>
+        <li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li>
+        <li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li>
+        <li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li><li>¯\_(ツ)_/¯</li>
+    </ul> 
+    <canvas></canvas>
+      <div id="impress">
+        <div id="Title" class="step press" data-x="-1000" data-y="-2000" data-scale="100">
+          <div class="title giant-shrug">¯\_(ツ)_/¯</div>
+          <div style="padding-top:100px"></div>
+          <p>Presentation by <a class="shrug-link" href="https://pboueke.github.io">¯\_(ツ)_/¯</a>, May 2018</p>
+        </div>
+  
+        <div class="step press" data-x="90000" data-y="-15000" data-scale="110" data-rotate="90">
+          <div class="subtitle sans">mastering ¯\_(ツ)_/¯ </div>
+        </div>
+      </div>
+
+      <script src="../impress/js/impress.js"></script>
+      <script>
+        if ("ontouchstart" in document.documentElement) {
+            document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+        }
+        impress().init();
+
+        var canvas = document.querySelector('canvas');
+        var ctx = canvas.getContext('2d');
+
+        // confioguration variables
+        // space between each line
+        var lineSpacing = 30;
+
+        var lineColor = 'rgba(255, 255, 255, 1)'; // RGBA supported, last value = alpha (between 0 and 1)
+
+        // line length is calculated based on distance between mouse position and the position of a point
+        // min and max are taken into account so the length of the line does not go below or above these values
+        var lineMinLength = 2;
+        var lineMaxLength = 10;
+
+        // multiplier of the length of the line, the length of the line is the distance between the mouse and the point at which a line starts
+        // e.g. if you cursor is at the top left and the point is at the bottom right, the distance will be 1, which is multiplied by this value
+        // this value will not exceed the min/max defined above
+        var lineLengthMultiplier = 20;
+
+        var lineWidth = 0.15;
+
+        // runtime variables
+        var width;
+        var height;
+        var linesX;
+        var linesY;
+        var mouseX;
+        var mouseY;
+
+        var onResize = function () {
+            width = canvas.clientWidth;
+            height = canvas.clientHeight;
+            linesX = Math.floor((width - (lineSpacing / 2)) / lineSpacing);
+            linesY = Math.floor((height - (lineSpacing / 2)) / lineSpacing);
+            canvas.width = width;
+            canvas.height = height;
+        };
+
+        var draw = function () {
+            requestAnimationFrame(draw);
+            
+            if (mouseX == void 0 || mouseY == void 0) {
+                return;
+            }
+            
+            ctx.clearRect(0, 0, width, height);
+            
+            ctx.lineWidth = lineWidth;
+            ctx.strokeStyle = lineColor;
+            
+            for (var x = 0; x < linesX; x++) {
+                for (var y = 0; y < linesY; y++) {
+                    var screenX = (x * lineSpacing) + lineSpacing;
+                    var screenY = (y * lineSpacing) + lineSpacing;
+                    var angle = Math.atan2(screenY - mouseY, screenX - mouseX);
+                    var distance = Math.sqrt( (mouseX-screenX) * (mouseX-screenX) + (mouseY - screenY) * (mouseY - screenY) );
+                    
+                    var length = Math.min(Math.max(lineMinLength, distance / ((width + height) / 2) * lineLengthMultiplier), lineMaxLength);
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(screenX, screenY);
+                    
+                    ctx.lineTo(
+                        screenX + length * Math.cos(angle),
+                        screenY + length * Math.sin(angle)
+                    );
+                    
+                    ctx.stroke();
+                }
+            }
+        };
+
+        window.addEventListener('resize', function () {
+            onResize();
+            draw();
+        });
+
+        canvas.addEventListener('mousemove', function (ev) {
+            mouseX = ev.clientX;
+            mouseY = ev.clientY;
+        });
+
+        onResize();
+
+        mouseX = width / 2;
+        mouseY = height / 2;
+
+        draw();
+  
+        window.dispatchEvent(new Event('resize'));
+
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-63582989-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+    </body>
+  </html>
+  
