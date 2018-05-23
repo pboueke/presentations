@@ -36,6 +36,20 @@ body {
     color: #FF9800;
   }
 
+  .bye {
+    font-size: 21px;
+  }
+
+  .repo {
+    text-decoration: none;
+    font-size: 16px;
+    color: orange;
+  }
+
+  .star {
+    font-size: 24px
+  }
+
   .shrug-link {
     text-decoration: none;
     color: red;
