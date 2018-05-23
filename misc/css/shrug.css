@@ -17,11 +17,29 @@ body {
 
   .giant-shrug {
     font-size: 150px;
-    
+  }
+
+  .sick-shrug {
+    font-size: 200px;
+    color: rgb(151, 255, 233);
+  }
+
+  .small-shrug {
+      color: yellow;    
+  }
+
+  .tiny-shrug {
+    font-size: 12px;
+    margin-top: 1px;
+    margin-left: -2px;
+    position: absolute;
+    color: #FF9800;
   }
 
   .shrug-link {
     text-decoration: none;
+    color: red;
+    font-weight: 800;
   }
 
   canvas {
@@ -32,6 +50,27 @@ body {
     height: 100%;
   }
   
+  /* spinner by Anton Staroverov @ codepen: https://codepen.io/tonystar/pen/ZGavdL */
+  /* MIT 2018 */
+
+  #spinner {
+    animation-name: spin, depth;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    text-align: center;
+  }
+  @keyframes spin {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(-360deg); }
+  }
+  @keyframes depth {
+    0 { text-shadow: 0 0 black; }
+    25% { text-shadow: 1px 0 black, 2px 0 black, 3px 0 black, 4px 0 black, 5px 0 black; }
+    50% { text-shadow: 0 0 black; }
+    75% { text-shadow: -1px 0 black, -2px 0 black, -3px 0 black, -4px 0 black, -5px 0 black; }
+    100% { text-shadow: 0 0 black; }
+  }
 
     /* inpress defaults */
 
@@ -124,7 +163,8 @@ body {
     .impress-enabled          { pointer-events: none }
     .impress-enabled #impress { pointer-events: auto }
 
-  /* text spiral */
+  /* AWESOME text spiral by user 'carpe numidium'at codepen: https://codepen.io/carpenumidium/pen/ZOjawV*/
+  /* MIT licensed 2018 */
   ul {
     overflow: hidden;
     list-style: none;

@@ -37,11 +37,19 @@
         <div id="Title" class="step press" data-x="-1000" data-y="-2000" data-scale="100">
           <div class="title giant-shrug">¯\_(ツ)_/¯</div>
           <div style="padding-top:100px"></div>
-          <p>Presentation by <a class="shrug-link" href="https://pboueke.github.io">¯\_(ツ)_/¯</a>, May 2018</p>
+          <p>Presentation by <a class="shrug-link" href="https://pboueke.github.io">¯\_(ツ)_/¯</a>, <span id="currM"></span> <span id="currY"></span></p>
         </div>
   
-        <div class="step press" data-x="90000" data-y="-15000" data-scale="110" data-rotate="90">
-          <div class="subtitle sans">mastering ¯\_(ツ)_/¯ </div>
+        <div class="step press" data-x="110000" data-y="-15000" data-scale="110" data-rotate="90">
+          <div class="subtitle sans">mastering <span class="small-shrug">¯\_(ツ)_/¯</span> </div>
+        </div>
+
+        <div class="step press" data-x="110000" data-y="200000" data-scale="110" data-rotate="90">
+            <div class="sick-shrug" id="spinner">¯\_(ツ)_/¯</div>
+        </div>
+
+        <div class="step press" data-x="50000" data-y="100000" data-z="500000" data-scale="110" data-rotate="180" data-rotate-z="70">
+            <div class="subtitle sans">questions? </div>
         </div>
       </div>
 
@@ -51,6 +59,17 @@
             document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
         }
         impress().init();
+
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+        ];
+        const d = new Date();
+        document.getElementById("currM").innerHTML = monthNames[d.getMonth()]
+        document.getElementById("currY").innerHTML = d.getFullYear();
+
+
+        // AWESOME dot background by user art0rz @ codepen: https://codepen.io/art0rz/pen/QNQZQN
+        // MIT licensed 2018
 
         var canvas = document.querySelector('canvas');
         var ctx = canvas.getContext('2d');
@@ -129,9 +148,10 @@
             draw();
         });
 
-        canvas.addEventListener('mousemove', function (ev) {
+        window.addEventListener('mousemove', function (ev) {
             mouseX = ev.clientX;
             mouseY = ev.clientY;
+            console.log("as")
         });
 
         onResize();
