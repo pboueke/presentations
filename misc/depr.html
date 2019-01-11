@@ -1,0 +1,130 @@
+<html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=1024" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <title>Depressed together</title>
+  
+      <meta name="description" content="Depression" />
+      <meta name="author" content="Pedro Boueke" />
+  
+      <link href="css/depre.css" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Encode+Sans|Share+Tech+Mono" rel="stylesheet">
+    </head>
+    <body class="impress-not-supported">
+      <div class="fallback-message">
+          <p>Your browser does not support impress.js, so you are presented with ¯\_(ツ)_/¯</p>
+          <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+      </div>
+
+      <canvas></canvas>
+
+      <div id="impress">
+        <div id="Title" class="step press" data-x="100000" data-y="-150000" data-scale="200">
+          <div class="title giant-shrug"></div>
+          <div style="padding-top:100px"></div>
+        </div>
+  
+        <div class="step press" data-x="0" data-y="0" data-scale="500" data-z="-1000" data-rotate="0">
+          <img src="img/colossus.jpg">
+        </div>
+
+        <div class="step press" data-x="110000" data-y="200000" data-scale="110" data-rotate="90">
+            <div class="sick-shrug" id="spinner">¯\_(ツ)_/¯</div>
+        </div>
+
+        <div class="step press" data-x="50000" data-y="100000" data-z="500000" data-scale="110" data-rotate="180" data-rotate-z="70">
+            <div class="subtitle sans">questions? </div>
+            <div class="subtitle sans bye">👉 <a CLASS="repo" href="https://github.com/pboueke/presentations">repo</a> + <span class="star">⭐</span> = 😂</div>
+        </div>
+      </div>
+
+      <script src="../impress/js/impress.js"></script>
+      <script>
+        if ("ontouchstart" in document.documentElement) {
+            document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+        }
+        impress().init();
+
+
+        //AWESOME PEN https://codepen.io/cnupm99/pen/YPEbbv
+        var maxx = document.body.clientWidth;
+        var maxy = document.body.clientHeight;
+        var halfx = maxx / 2;
+        var halfy = maxy / 2;
+        var canvas = document.createElement("canvas");
+        document.body.appendChild(canvas);
+        canvas.width = maxx;
+        canvas.height = maxy;
+        var context = canvas.getContext("2d");
+        var dotCount = 200;
+        var dots = [];
+        // create dots
+        for (var i = 0; i < dotCount; i++) {
+        dots.push(new dot());
+        }
+
+        // dots animation
+        function render() {
+        context.fillStyle = "#000000";
+        context.fillRect(0, 0, maxx, maxy);
+        for (var i = 0; i < dotCount; i++) {
+            dots[i].draw();
+            dots[i].move();
+        }
+        requestAnimationFrame(render);
+        }
+
+        // dots class
+        // @constructor
+        function dot() {
+        
+        this.rad_x = 2 * Math.random() * halfx + 1;
+        this.rad_y = 1.2 * Math.random() * halfy + 1;
+        this.alpha = Math.random() * 360 + 1;
+        this.speed = Math.random() * 100 < 50 ? 1 : -1;
+        this.speed *= 0.01;
+        this.size = Math.random() * 5 + 1;
+        this.color = Math.floor(Math.random() * 256);
+        
+        }
+
+        // drawing dot
+        dot.prototype.draw = function() {
+        
+        // calc polar coord to decart
+        var dx = halfx + this.rad_x * Math.cos(this.alpha / 180 * Math.PI);
+        var dy = halfy + this.rad_y * Math.sin(this.alpha / 180 * Math.PI);
+        // set color
+        context.fillStyle = "rgb(" + this.color + "," + this.color + "," + this.color + ")";
+        // draw dot
+        context.fillRect(dx, dy, this.size, this.size);
+        
+        };
+
+        // calc new position in polar coord
+        dot.prototype.move = function() {
+        
+        this.alpha += this.speed;
+        // change color
+        if (Math.random() * 100 < 50) {
+            this.color += 1;
+        } else {
+            this.color -= 1;
+        }
+        
+        };
+
+        // start animation
+        render();
+
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-63582989-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+    </body>
+  </html>
+  
