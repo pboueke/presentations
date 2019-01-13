@@ -68,7 +68,7 @@ body {
 
 .impress-enabled .step {
     margin: 0;
-    /*opacity: 0.3;*/
+    opacity: 0.0;
 
     -webkit-transition: opacity 1s;
     -moz-transition:    opacity 1s;
@@ -114,3 +114,29 @@ body {
 
 .impress-enabled          { pointer-events: none }
 .impress-enabled #impress { pointer-events: auto }
+
+.title {
+    font-family: 'Cinzel', serif;
+}
+
+ul {
+    text-align: left;
+    list-style-type: circle;
+    font-size: 28px;
+}
+
+.default {
+    padding: 100px;
+    border-radius: 50px;
+    width: 900px;
+}
+
+.black {
+    background-color: rgba(0,0,0,.95);
+
+}
+
+a {
+    text-decoration: none;
+    color: red
+}
