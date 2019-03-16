@@ -220,13 +220,13 @@
     </section>
 
     <section class="slide">
-        <div class="page">9</div>
-        <div class="title">View</div>
-        <br><br>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Essa componente é um pacote da linguagem Python e contém as funçõoes
-            responsáveis por enviar o HTML a ser visualizado pelo usuário e responder todas
+        <div class="page">9</div><img height="400px" src="img/routes.png" />
+        <div class="title">View</div><img height="400px" src="img/routes.png" />
+        <br><br><img height="400px" src="img/routes.png" />
+        <p><img height="400px" src="img/routes.png" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="400px" src="img/routes.png" />
+            Essa componente é um pacote da linguagem Python <img height="400px" src="img/routes.png" />e contém as funçõoes
+            responsáveis por enviar o HTML a ser visualizado<img height="400px" src="img/routes.png" /> pelo usuário e responder todas
             as chamadas assíncronas requisitadas pelas interfaces. Também é responsável por
                 controlar o acesso dos usuários baseado nos grupos aos quais pertencem.
         </p>
@@ -275,10 +275,83 @@
     </section>
 
     <section class="slide">
-        <div class="page">14</div>
+        <div class="page">15</div>
         <div class="title">Urls</div>
         <br><br>
         <img height="400px" src="img/routes.png" />
+    </section>
+
+    <section class="slide">
+        <div class="page">16</div>
+        <div class="title">Implantação</div>
+        <br><br>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            A implantação da plataforma passa pela obtenção, configuração e inicialização do ambiente.
+        </p>
+        <br>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Para a obtenção do ambiente, foi utilizado um servidor hospedado na AWS. O banco de dados da aplicação 
+            foi hospedado na mesma máquina. A configuração e inicialização serão cobertas nos próximos slides.
+        </p>
+    </section>
+
+    <section class="slide">
+        <div class="page">17</div>
+        <div class="title">Configuração do ambiente</div>
+        <br><br>
+        <div style="display:flex;">
+            <img height="500px" src="img/readme.png"/>
+            <p style="max-width:400px;padding:50px;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Todos os passos da configuração do ambiente se encontram no arquivo README.md, 
+                no diretório raiz do projeto
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="page">18</div>
+        <div class="title">Inicialização da aplicação</div>
+        <br><br>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Com o ambiente configurado, basta executar o comando abaixo para iniciar a aplicação localmente, 
+            na porta de sua escolha: 
+        </p>
+        <br><br><br>
+        <div class="code">
+                $ python manage.py runserver 0.0.0.0:&lt;porta&gt;
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="page">19</div>
+        <div class="title">Conclusão</div>
+        <br><br>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Com todos os pontos objetivados alcançados, tem-se o sucesso da proposta e da implementação
+            da proposta.
+        </p>
+    </section>
+
+    <section class="slide">
+        <div class="page">20</div>
+        <div class="title">Trabalhos Futuros</div>
+        <br><br>
+        <ul style="list-style-type: decimal">
+            <li>
+                Expandir a aplicação com uma nova view encarregada de gerenciar as configurações
+            </li>
+            <li>
+                Expandir o número de modelos carregados na aplicação, permitindo vários modelos e cargas de trabalho
+            </li>
+            <li>
+                Expandir as interfaces da aplicação com uma interface programática na forma de uma web API para a execução de modelos sob demanda
+            </li>
+        </ul>
     </section>
 
     <div class="piece scanlines noclick"></div>
