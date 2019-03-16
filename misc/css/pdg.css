@@ -1,0 +1,145 @@
+/*
+font-family: 'Ultra', serif;
+font-family: 'Open Sans', sans-serif;
+*/
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  background:url( data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAJ0lEQVQYV2NkQAO3b9/+zwgSAzFUVVXBbBCAM5Al4ILIOhjRtYIkAe7DE5aYfrHQAAAAAElFTkSuQmCC
+  ) repeat;
+}
+
+body {
+  display: flex;
+  background-color: #fff;
+}
+
+canvas {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.waves {
+    position: absolute;
+    z-index: 1;
+}
+
+.deck-container {
+    max-width: 1200px !important;
+    max-height: 800px !important;
+    width: 1200px;
+    margin: 30px auto 30px auto;
+    min-height: auto !important;
+    left: auto !important;
+    z-index: 2;
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.4);
+    color: #4f3a4b;
+    border-radius: 5px;
+}
+
+.deck-header {
+    padding:5px;
+    font-size: 20px;;
+    font-weight: 700;
+    text-align: center;
+    top:0;
+    background-color: #005b96;
+    color: white;
+    position: absolute;
+    width: 100%;
+}
+
+.deck-footer {
+    padding:5px;
+    font-size: 18px;;
+    font-weight: 400;
+    text-align: center;
+    bottom:0;
+    background-color: #005b96;
+    color: white;
+    position: absolute;
+    width: 100%;
+    display:flex;
+    justify-content: space-between
+} .deck-footer > * {
+    margin: auto 15px auto 15px;
+}
+
+.slide > *, deck-slide-scaler {
+    margin-top:50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slide {
+    text-align: center;
+}
+
+.main-title {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 50px;
+    margin-top: 40px;
+    max-width: 800px;
+}
+
+.author {
+    font-size: 30px;
+}
+
+.title {
+    max-width: 800px;
+    margin-top: 40px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 40px;
+}
+
+p, ul { 
+    font-size: 24px;
+    max-width: 800px;
+    text-align: justify;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+blockquote {
+    background: #f9f9f9;
+    margin: 40px 60px 30px 60px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+    font-size: 24px;
+}
+
+.page {
+    position: absolute;
+    margin-top: -43px;
+    right: 0;
+    color: white;
+}
+
+blockquote:before {
+    color: #e55256;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+blockquote p {
+    display: inline;
+}
+
+img {
+    border-radius:12px;
+}
+
+.gif {
+    margin: auto 30px auto 30px;
+}

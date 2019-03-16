@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <title>Framework para Serviços de Aprendizado de Máquina</title>
+  <meta name="description" content="Framework para Serviços de Aprendizado de Máquina">
+  <meta name="keywords" content="machine learning, pboueke">
+  <meta name="author" content="Pedro Boueke">
+
+  <!-- Required stylesheet -->
+  <link rel="stylesheet" media="screen" href="../deck/core/deck.core.css">
+  <link rel="stylesheet" media="screen" href="css/pdg.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Ultra|Roboto+Mono" rel="stylesheet">
+
+  <!-- Extension CSS files go here. Remove or add as needed. -->
+  <link rel="stylesheet" media="screen" href="../deck/extensions/goto/deck.goto.css">
+  <link rel="stylesheet" media="screen" href="../deck/extensions/menu/deck.menu.css">
+  <link rel="stylesheet" media="screen" href="../deck/extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="../deck/extensions/scale/deck.scale.css">
+
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="../deck/themes/transition/fade.css">
+
+  <!-- Basic black and white print styles -->
+  <link rel="stylesheet" media="print" href="../deck/core/print.css">
+
+  <!-- Required Modernizr file -->
+  <script src="../deck/modernizr.custom.js"></script>
+</head>
+<body>
+  <div class="deck-container frame output">
+      <div class="deck-header">Framework para Serviços de Aprendizado de Máquina</div>
+
+    <section class="slide">
+        <div class="main-title">Framework para Serviços de Aprendizado de Máquina</div>
+        <br><br>
+        <div class="author">Pedro Hollanda Boueke</div>
+        <br><br><br>
+        <div style="margin-left:50%; margin-right:10%; font-size:20px; text-align: justify">
+            <div >
+                Projeto de Graduaçãao apresentado ao Curso
+                de Engenharia de Computação e Informação
+                da Escola Politécnica, Universidade Federal
+                do Rio de Janeiro, como parte dos requisitos
+                necessários à obtenção do título de Engenheiro.                    
+            </div>
+            <br>
+            <div>
+                Orientador: <span style="font-weight: 700">Flávio Luis de Mello</span>
+            </div>
+        </div>
+        <br><br><br><br><br>
+        <div style="font-size:20px;">
+            Rio de Janeiro <br> Março de 2019
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="page">1</div>
+        <div class="title">Tema</div>
+        <br><br>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            O trabalho apresenta uma proposta de plataforma para a gerência e 
+            execução de modelos de Aprendizado de Máquina, da coleta dos dados
+            a serem processados à execução e entrega dos resultados.
+        </p>
+        <br>
+        <!--<p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            O trabalho se destina a atender as demandas de todas as esferas de 
+            usuários de modelos de aprendizado de máquina, com algumas restrições.
+            São requisitos para uso da plataforma: uso de sistemas operacionais
+            UNIX; uso da linguagem Python3; uso de bancos de dados compatíveis 
+            com a linguagem SQL.
+        </p>-->
+    </section>
+
+    <section class="slide">
+        <div class="page">2</div>
+        <div class="title">Justificativa</div>
+        <br><br>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Enquanto que novos modelos de Aprendizado de Máquina são propostos regularmente 
+            na academia, pouca 6enfase é dada à implantação de tais modelos em ambientes
+            não acadêmicos. Dado esse cenário, nota-se que existe espaço e demanda para o
+            estudo e desenvolvimento de novas metodologias e plataformas que ambicionem soluçõoes para
+            as dificuldades envolvidas em trazer um modelo de Aprendizado de Máquina para
+            um ambiente não acadêmico.
+        </p>
+    </section>
+
+    <section class="slide">
+        <div class="page">3</div>
+        <div class="title">Objetivos</div>
+        <br><br>
+        <ul style="list-style-type: decimal">
+            <li>
+                Desenvolvimento de uma aplicação web que:
+                <ul style="list-style-type: lower-alpha">
+                    <li>
+                        Permite o escalonamento da execução de modelos
+                    </li>
+                    <li>
+                        Permite a visualização dos resultados e eventos do sistema
+                    </li>
+                    <li>
+                        Permite a execução de modelos em tempo real
+                    </li>
+                    <li>
+                        Se comunica com bases de dados externas para coleta e persistência de dados
+                    </li>
+                    <li>
+                        É configurável a fim de atender ambientes diversos
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Desenvolvimento de uma base de dados relacional para armazenamento de eventos da plataforma
+            </li>
+            <li>
+                Desenvolvimento de um programa para execução de modelos de aprendizado de máquina
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <div class="page">4</div>
+        <div class="title">Sistemas de Aprendizado de Máquina em Ambiente de Produção</div>
+        <br><br>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            O ressurgimento da área de Aprendizado de Máquina na academia não se viu acompanhado, 
+            na mesma escala, da criação de novos sistemas para implantação prática dos novos modelos.
+        </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            As principais soluções são a implementação própria de um sistema, similar ao trabalho exposto aqui, 
+            e o uso de serviços gerenciados, como o Amazon Sagemaker e o Azure Machine Learning Studio.
+        </p>
+        <div style="display: flex; flex-direction: row;">
+            <img height="150px" src="img/sagemaker.png"/>
+            <img height="150px" src="img/azuremls.jpg">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="page">5</div>
+        <div class="title">Agendadores de Tarefas</div>
+        <br><br>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Sistemas agendadores de tarefas, ou job shedulers, são ferramentas que permitem o agendamento
+            da execução de programas em intervalos de tempo predeterminados. Duas dessas ferramentas são o
+            slurm e o crontab.
+        </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            O crontab, utilizado nesse trabalho, se destaca por ser extremamente simples, fazendo uso de 
+            expressões CRON para o agendamento de tarefas.
+        </p>
+        <div style="display: flex; flex-direction: row;">
+            <img height="150px" src="img/slurm.png" style="margin-right: 50px;"/>
+            <img height="150px" src="img/crontab.png" style="margin-left: 50px;">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="page">6</div>
+        <div class="title">Desenvolvimento com Django e AWS</div>
+        <br><br>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            O Django é um framework para desenvolvimento de aplicações web disponível para as linguagens
+            de programação Python 2 e 3. Sua estrutura é baseada no paradigma MTV e é particularmente 
+            caracterizada por uma forte integração nativa a vários bancos de dados. <!--O framework dispoinibiliza
+            serviços de autenticação e administração de fácil acesso e requer pouco código para se atingir as 
+            funcionalidades básicas de uma aplicação web.-->
+        </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            A Amazon Web Services, ou AWS, é a maior provedora de infraestrutura em nuvem do mundo. A empresa 
+            disponibiliza, dentre muitos outros, serviços para websites, dispositivos móveis, redes, aluguel de servidores, etc.
+        </p>
+        <div style="display: flex; flex-direction: row;">
+            <img height="120px" src="img/django.png" style="margin-right: 50px; margin-top:30px;"/>
+            <img height="150px" src="img/aws.png" style="margin-left: 50px;">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="page">7</div>
+        <div class="title">Arquitetura</div>
+        <br><br>
+        <img height="550px" src="img/framework.png" />
+    </section>
+
+    <section class="slide">
+        <div class="page">8</div>
+        <div class="title">Configuração</div>
+        <br><br>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Toda a configuração da aplicação é realizada a partir de dois arquivos, o settings.py, 
+            o arquivo de configuração padrão do Django, e o config.yaml, o arquivo de configuração
+            da plataforma.
+        </p>
+        <br>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            No arquivo config.yaml, são configurados todos os parâmetros necessários para a conexão 
+            e monitoramento de todos os serviços associados, bem como os modelos carregados na aplicação
+            e o comando a ser executado pelo CRON daemon.
+        </p>
+    </section>
+
+    <section class="slide">
+        <div class="page">9</div>
+        <div class="title">View</div>
+        <br><br>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Essa componente é um pacote da linguagem Python e contém as funçõoes
+            responsáveis por enviar o HTML a ser visualizado pelo usuário e responder todas
+            as chamadas assíncronas requisitadas pelas interfaces. Também é responsável por
+                controlar o acesso dos usuários baseado nos grupos aos quais pertencem.
+        </p>
+        <br><br>
+        <img height="200px" src="img/perms.png" />
+    </section>
+
+    <section class="slide">
+        <div class="page">10</div>
+        <div class="title">Datalake</div>
+        <br><br>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Essa componente é responsável por gerenciar a conexão com o datalake associado ao projeto.
+            Todas as chamadas e queries executadas no datalake são executadas por meio dessa componente.
+        </p>
+        <br>
+    </section>
+
+    <section class="slide">
+        <div class="page">11</div>
+        <div class="title">Showroom</div>
+        <br><br>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Essa componente é responsável por gerenciar a conexão com o datalake associado ao projeto.
+            Todas as chamadas e queries executadas no datalake são executadas por meio dessa componente.
+        </p>
+        <br>
+    </section>
+
+    <div class="piece scanlines noclick"></div>
+    <div class="piece glow noclick"></div>
+
+    <!-- End slides. -->
+
+    <!-- Begin extension snippets. Add or remove as needed. -->
+
+    <!-- deck.navigation snippet -->
+    <div aria-role="navigation">
+      <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+      <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    </div>
+
+    <!-- deck.goto snippet -->
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <div class="deck-footer">
+        <span>Março de 2019</span>
+        <span>UFRJ</span>
+    </div>
+
+  </div>
+
+  <!--<div class="pres-author"> Presentation by <a href="https://pboueke.github.io"> Pedro Boueke</a>, September 2017  </div>-->
+
+<!-- Required JS files. -->
+<script src="../deck/jquery.min.js"></script>
+<script src="../deck/core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="../deck/extensions/menu/deck.menu.js"></script>
+<script src="../deck/extensions/goto/deck.goto.js"></script>
+<script src="../deck/extensions/navigation/deck.navigation.js"></script>
+<script src="../deck/extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+
+    // deck js
+    $(function() {
+        $.deck('.slide');
+    });
+
+    // google analytics
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-63582989-1', 'auto');
+        ga('send', 'pageview');
+</script>
+</body>
+</html>
