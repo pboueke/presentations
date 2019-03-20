@@ -63,11 +63,8 @@
         <div class="page">1</div>
         <div class="title">Tema</div>
         <br><br>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            O trabalho apresenta uma proposta de plataforma para a gerência e 
-            execução de modelos de Aprendizado de Máquina, da coleta dos dados
-            a serem processados à execução e entrega dos resultados.
+        <p class="large">
+            Uma plataforma para serviços<br> de Aprendizado de Máquina.
         </p>
         <br>
         <!--<p>
@@ -84,15 +81,14 @@
         <div class="page">2</div>
         <div class="title">Justificativa</div>
         <br><br>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Enquanto que novos modelos de Aprendizado de Máquina são propostos regularmente 
-            na academia, pouca 6enfase é dada à implantação de tais modelos em ambientes
-            não acadêmicos. Dado esse cenário, nota-se que existe espaço e demanda para o
-            estudo e desenvolvimento de novas metodologias e plataformas que ambicionem soluçõoes para
-            as dificuldades envolvidas em trazer um modelo de Aprendizado de Máquina para
-            um ambiente não acadêmico.
-        </p>
+        <ul class="large" style="list-style-type: circle">
+            <li>
+                Alta demanda 
+            </li>
+            <li>
+                Menor foco acadêmico
+            </li>
+        </ul>
     </section>
 
     <section class="slide">
@@ -101,30 +97,30 @@
         <br><br>
         <ul style="list-style-type: decimal">
             <li>
-                Desenvolvimento de uma aplicação web que:
+                Aplicação web:
                 <ul style="list-style-type: lower-alpha">
                     <li>
-                        Permite o escalonamento da execução de modelos
+                        escalonamento da execução de modelos
                     </li>
                     <li>
-                        Permite a visualização dos resultados e eventos do sistema
+                        visualização dos resultados e eventos do sistema
                     </li>
                     <li>
-                        Permite a execução de modelos em tempo real
+                        execução de modelos em tempo real
                     </li>
                     <li>
-                        Se comunica com bases de dados externas para coleta e persistência de dados
+                        coleta e persistência de dados
                     </li>
                     <li>
-                        É configurável a fim de atender ambientes diversos
+                        configurávels
                     </li>
                 </ul>
             </li>
             <li>
-                Desenvolvimento de uma base de dados relacional para armazenamento de eventos da plataforma
+                Base de dados relacional para armazenamento de eventos
             </li>
             <li>
-                Desenvolvimento de um programa para execução de modelos de aprendizado de máquina
+                Programa para execução de modelos de aprendizado de máquina
             </li>
         </ul>
     </section>
@@ -133,19 +129,10 @@
         <div class="page">4</div>
         <div class="title">Sistemas de Aprendizado de Máquina em Ambiente de Produção</div>
         <br><br>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            O ressurgimento da área de Aprendizado de Máquina na academia não se viu acompanhado, 
-            na mesma escala, da criação de novos sistemas para implantação prática dos novos modelos.
-        </p>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            As principais soluções são a implementação própria de um sistema, similar ao trabalho exposto aqui, 
-            e o uso de serviços gerenciados, como o Amazon Sagemaker e o Azure Machine Learning Studio.
-        </p>
-        <div style="display: flex; flex-direction: row;">
-            <img height="150px" src="img/sagemaker.png"/>
-            <img height="150px" src="img/azuremls.jpg">
+
+        <div style="display: flex; flex-direction: column;">
+            <img height="200px" src="img/sagemaker.png"/>
+            <img height="200px" src="img/azuremls.jpg">
         </div>
     </section>
 
@@ -153,20 +140,10 @@
         <div class="page">5</div>
         <div class="title">Agendadores de Tarefas</div>
         <br><br>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Sistemas agendadores de tarefas, ou job shedulers, são ferramentas que permitem o agendamento
-            da execução de programas em intervalos de tempo predeterminados. Duas dessas ferramentas são o
-            slurm e o crontab.
-        </p>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            O crontab, utilizado nesse trabalho, se destaca por ser extremamente simples, fazendo uso de 
-            expressões CRON para o agendamento de tarefas.
-        </p>
-        <div style="display: flex; flex-direction: row;">
-            <img height="150px" src="img/slurm.png" style="margin-right: 50px;"/>
-            <img height="150px" src="img/crontab.png" style="margin-left: 50px;">
+        <div style="display: flex; flex-direction: column;">
+            <br>
+            <img height="200px" src="img/slurm.png" style="margin-right: 50px;"/>
+            <img height="240px" src="img/crontab.png" style="margin-left: 50px;">
         </div>
     </section>
 
@@ -174,22 +151,9 @@
         <div class="page">6</div>
         <div class="title">Desenvolvimento com Django e AWS</div>
         <br><br>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            O Django é um framework para desenvolvimento de aplicações web disponível para as linguagens
-            de programação Python 2 e 3. Sua estrutura é baseada no paradigma MTV e é particularmente 
-            caracterizada por uma forte integração nativa a vários bancos de dados. <!--O framework dispoinibiliza
-            serviços de autenticação e administração de fácil acesso e requer pouco código para se atingir as 
-            funcionalidades básicas de uma aplicação web.-->
-        </p>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            A Amazon Web Services, ou AWS, é a maior provedora de infraestrutura em nuvem do mundo. A empresa 
-            disponibiliza, dentre muitos outros, serviços para websites, dispositivos móveis, redes, aluguel de servidores, etc.
-        </p>
-        <div style="display: flex; flex-direction: row;">
-            <img height="120px" src="img/django.png" style="margin-right: 50px; margin-top:30px;"/>
-            <img height="150px" src="img/aws.png" style="margin-left: 50px;">
+        <div style="display: flex; flex-direction: column;">
+            <img height="170px" src="img/django.png" style="margin-top: 50px;"/>
+            <img height="230px" src="img/aws.png" style="">
         </div>
     </section>
 
@@ -204,44 +168,33 @@
         <div class="page">8</div>
         <div class="title">Configuração</div>
         <br><br>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Toda a configuração da aplicação é realizada a partir de dois arquivos, o settings.py, 
-            o arquivo de configuração padrão do Django, e o config.yaml, o arquivo de configuração
-            da plataforma.
-        </p>
-        <br>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            No arquivo config.yaml, são configurados todos os parâmetros necessários para a conexão 
-            e monitoramento de todos os serviços associados, bem como os modelos carregados na aplicação
-            e o comando a ser executado pelo CRON daemon.
-        </p>
+        <ul class="large" style="list-style-type: circle">
+                <li>
+                    settings.py 
+                </li>
+                <li>
+                    config.yaml
+                </li>
+            </ul>
     </section>
 
     <section class="slide">
         <div class="page">9</div>
         <div class="title">View</div>
         <br><br>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Essa componente é um pacote da linguagem Python e contém as funçõoes
-            responsáveis por enviar o HTML a ser visualizado pelo usuário e responder todas
-            as chamadas assíncronas requisitadas pelas interfaces. Também é responsável por
-                controlar o acesso dos usuários baseado nos grupos aos quais pertencem.
-        </p>
-        <br><br>
-        <img height="200px" src="img/perms.png" />
+        <img height="400px" src="img/framework.png" />
+        <br>
+        <img height="150px" src="img/perms.png" />
     </section>
 
     <section class="slide">
         <div class="page">10</div>
         <div class="title">Datalake</div>
         <br><br>
+        <img height="400px" src="img/framework.png" />
+        <br>
         <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Essa componente é responsável por gerenciar a conexão com o datalake associado ao projeto.
-            Todas as chamadas e queries executadas no datalake são executadas por meio dessa componente.
+            Gerência a conexão com o Datalake
         </p>
         <br>
     </section>
@@ -285,16 +238,14 @@
         <div class="page">16</div>
         <div class="title">Implantação</div>
         <br><br>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            A implantação da plataforma passa pela obtenção, configuração e inicialização do ambiente.
-        </p>
-        <br>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Para a obtenção do ambiente, foi utilizado um servidor hospedado na AWS. O banco de dados da aplicação 
-            foi hospedado na mesma máquina. A configuração e inicialização serão cobertas nos próximos slides.
-        </p>
+        <ul class="large" style="list-style-type: circle">
+                <li>
+                    Servidor na AWS
+                </li>
+                <li>
+                    Banco hospedado na mesma máquina
+                </li>
+            </ul>
     </section>
 
     <section class="slide">
@@ -305,8 +256,7 @@
             <img height="500px" src="img/readme.png"/>
             <p style="max-width:400px;padding:50px;">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                Todos os passos da configuração do ambiente se encontram no arquivo README.md, 
-                no diretório raiz do projeto
+                README.md
             </p>
         </div>
     </section>
@@ -314,13 +264,7 @@
     <section class="slide">
         <div class="page">18</div>
         <div class="title">Inicialização da aplicação</div>
-        <br><br>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Com o ambiente configurado, basta executar o comando abaixo para iniciar a aplicação localmente, 
-            na porta de sua escolha: 
-        </p>
-        <br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
         <div class="code">
                 $ python manage.py runserver 0.0.0.0:&lt;porta&gt;
         </div>
@@ -330,7 +274,7 @@
         <div class="page">19</div>
         <div class="title">Conclusão</div>
         <br><br>
-        <p>
+        <p class="large">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             Com todos os pontos objetivados alcançados, tem-se o sucesso da proposta e da implementação
             da proposta.
@@ -341,15 +285,15 @@
         <div class="page">20</div>
         <div class="title">Trabalhos Futuros</div>
         <br><br>
-        <ul style="list-style-type: decimal">
+        <ul CLASS="large" style="list-style-type: decimal">
             <li>
-                Expandir a aplicação com uma nova view encarregada de gerenciar as configurações
+                View encarregada de gerenciar as configurações
             </li>
             <li>
-                Expandir o número de modelos carregados na aplicação, permitindo vários modelos e cargas de trabalho
+                Permitir vários modelos e cargas de trabalho
             </li>
             <li>
-                Expandir as interfaces da aplicação com uma interface programática na forma de uma web API para a execução de modelos sob demanda
+                Web API para a execução de modelos sob demanda
             </li>
         </ul>
     </section>
