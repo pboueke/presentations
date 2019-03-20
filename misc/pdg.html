@@ -112,7 +112,7 @@
                         coleta e persistência de dados
                     </li>
                     <li>
-                        configurávels
+                        configurável
                     </li>
                 </ul>
             </li>
@@ -240,6 +240,9 @@
         <br><br>
         <ul class="large" style="list-style-type: circle">
                 <li>
+                    Código fonte no Github
+                </li>
+                <li>
                     Servidor na AWS
                 </li>
                 <li>
@@ -297,6 +300,126 @@
             </li>
         </ul>
     </section>
+
+    <!--
+        0. Boa tarde a todos, meu nome é Pedro Hollanda Boueke, aluno orientado pelo professor 
+        Flavio Luis de Mello. Hoje vou apresentar o meu projeto de graduação, um Framework 
+        para serviços de aprendizado de máquina
+
+        1. Como o nome sugere, o tema do trabalho se trata de uma plataforma para gerencia e execucao
+        de servicos de aprendizado de maquina, desde a coleta dos dados a serem processados até a execucao
+        dos modelos de aprendzado de maquina e persistencia e visualizacao dos resultados
+
+        2. O projeto se justifica pela alta demanda por sistemas de aprendizado de maquina no momento. Enquanto
+        que houve um grande aumento de publicacoes e pesquisa sendo feita na área de aprendizado de maquina,
+        nao houve aumento, na mesma medida, do surgimento de sistemas para implantacao de modelos e algoritmos
+        de aprendizado de maquina em ambientes de producao, principalmente por parte da academia
+        
+        3. Objetiva-se a construcao de uma aplicacao web que permita o escalonamento da execucao 
+        de modelos de aprendizado de maquina, a visualizacao dos resultados, a execucao de modelos em tempo real,
+        a coleta e persistencia dos dados de maneira configurável e adaptável a ambientes diversos. 
+        O desenvolvimento de uma base de dados relacional para armazenamento dos resultados e eventos do sistema
+        O desenvolvimento de um programa para execucao de modelos de aprendizado de maquina
+
+        4. As principais tecnologias prontas para implantacao de modelos de aprendizado de maquina em producao
+        são serviços gerenciados, como o amazon sagemaker e o azure machine learning studio. Enquanto que 
+        existem solucoes open source, em sua maioria requerem grande esforco para serem utilizadas
+
+        5. Para o processamento escalonado de tarefas, uma solução é o uso de agendadores de tarefas, job schedulers,
+        ferramentas que permitem a execucao agendada de programas.
+        Uma dessas ferramentas é o slurm, uma das pricipais ferramentas de código aberta utilizada em sistemas unix-like.
+        O slurm é um workload manager caracterizado por tres funcoes principais: a alocacao de recursos a usuários, 
+        prover um framework para gerenciar tarefas, arbitrar a contencao de recursos gerenciando filas de trabalhos pendentes
+        Outra ferramenta é o crontab. O
+        nome  ́e uma abrevia ̧c ̃ao de cron table, pois se refere ao arquivo cron file utilizado
+        internamente para agendamento e execu ̧c ̃ao de tarefas. Esse programa consiste de
+        um arquivo no sistema operacional que periodicamente  ́e lido pelo cron daemon,
+        fazendo uso de express ̃oes CRON, e suas linhas s ̃ao interpretadas como entradas de
+        uma tabela contendo em uma coluna a express ̃ao que define sua agenda de execu ̧c ̃ao e
+        em outra coluna o comando a ser executado como um programa de linha de comando.
+        Seu diferencial est ́a no fato de ser extremamente simples e possuir suporte para
+        manipula ̧c ̃ao por meio de diversas linguagens de programa ̧c ̃ao, incluindo Python 3,
+        a linguagem escolhida para o desenvolvimento do sistema aqui detalhado.
+
+        6. O Django  ́e um framework de desenvolvimento de aplica ̧c ̃oes e servi ̧cos web
+        dispon ́ıvel nas linguagens de programa ̧c ̃ao Python 2 e 3, gratuito e de c ́odigo aberto.
+        Sua estrutura interna  ́e baseada no paradigma MTV, particularmente caracterizada
+        por uma forte e nativa integra ̧c ̃ao com bancos de dados a partir de uma interface
+        pr ́opria. Um ponto interessante é que ele prove toda uma camadsa de autenticacao e
+        administracao própria, evitando que ela precise ser desenvolvida. 
+        A Amazon Web Services, ou AWS,  ́e a maior provedora de infraestrutura em
+        nuvem do mercado. A empresa provˆe servi ̧cos para websites, aplica ̧c ̃oes cliente
+        servidor, banco de dados, an ́alise de dados, redes, dispositivos m ́oveis, ferramentas
+        de gerenciamento, armazenamento de dados, aluguel de servidores entre outros [6].
+        Seus servi ̧cos podem ser acessados em seu portal web e por meio de suas APIs e
+        SDKs.
+
+        7. Aplicacao django com tres interfaces. Explicar diagrama.
+
+        8. Dois arquivos de configuracao, o settings.py, referente as configuracoes do django, 
+        e o config.yaml, com as configuracoes do framework
+
+        9. Componente que atua como controlador das requisicoes, sendo responsavel por respnser 
+        todos os html e requisicoes assincronas requisitadas. Essa componente também é responsável 
+        por gerenciar as permissoes de acesso dos usuários, restringindo acesso a certas views, dependendo
+        do grupo ao qual o ususario pertence
+
+        10. É responsável por gerenciar as conexões com o datalake. Todas as conexoes passam por ele.
+
+        11. A view showrrom tem o propósito de demonstrar o modelo carregado na aplicacao permitindo que 
+        inferencias sejam realizadas em tempo real sobre uma série de casos, como visto na figura. A componente
+        contem dois metodos appenas, um para a inferencia de todos os casos e outro para a inferencia de apenas um deles
+
+        12. Essa é a componente responsável por executar, de maneira escalonada, as inferencias
+        que a plataforma se propoe a fazer. Sempre  que executada, seguirá os passos do diagrama de sequencia aqui mostrado.
+        Ela basicamente coleta os dados do datalake, faz a inferencia sobre cada um deles e persite os resultados no datalake,
+        armazenando todos os eventos e resultados também no banco da aplicacao
+
+        13. Essa view é responsável por opermitir a visualizacao dos disparos e resultados associados a cada um deles.
+        Nela, há um filtro de intervalo temporal que permite a visualizacao de todos os disparos dentro de um intervalo de tempo
+
+        14. Essa view é responsável pelo monitoramento de todos os servicos associados de alguma maneira a aplicacao. Ela monitora o
+        estado de um servidor por meio de uma conexao socket, o estado do datalake por meio de uma consulta simples ao banco, 
+        o estado do banco da aplicacao por meio do estado da conexao com o banco gerenciada pelo DDjango e o estado do crontab, verificando
+        se o comando de execucao do daemon esta ativo, a proxima e ultima data de exeecucao e a expressao CRON carregada na aplicacao.
+
+        15. A componente urls.py  ́e respons ́avel por descrever as rotas da aplica ̧c ̃ao. Nela, os
+        caminhos que levam `as views e `as chamadas ass ́ıncronas est ̃ao detalhadas em uma
+        lista, fazendo a associa ̧c ̃ao direta entre as fun ̧c ̃oes da componete views.py e as rotas
+        usadas pelo usu ́ario e pela interface da aplica ̧c ̃ao.
+
+        16. Para a implantacao do sistema, é preciso obter o codigo fonte no github.
+        Foi obtido um servidor na aws, onde foram instalados o framework
+        e o banco da aplicacao. Os passos para implantacao, configuracao e inicializacao sao vistos a seguir
+
+        17. Com o codigo fonte em maos, é preciso seguir as instrucoes do readme do projeto, que contem detalhadamente
+        todos os passos de configuracao. Eles sao:
+        * instalar o pytrhon 3 na maquina da aplicacao
+        * criar e inicializar um ambiente virtual para o python
+        * carregar dependencias python
+        * instalar o banco MySQL em local acessivel a aplicacao
+        * instalar o cliente MySQL na maquina da aplicacao 
+        * configurar config.yaml adequadamente
+        * se conectar ao banco e criar usuario do django
+        * inicializar o django 
+        * criar usuarios e grupos dos usuarios
+        * instalar driver ODBC compativel ao datalake
+
+        18. basta executar esse comando
+
+        19. Sucesso, todos os objetivos foram alcançados. O escalonamento
+        de execu ̧c ̃oes de modelos de aprendizado de m ́aquina  ́e poss ́ıvel por meio do uso do
+        crontab, gerenciado pela aplica ̧c ̃ao web. A visualiza ̧c ̃ao dos resultados e eventos  ́e
+        poss ́ıvel por meio da mesma aplica ̧c ̃ao, que, por sua vez,  ́e configur ́avel de diversas
+        formas, como visto anteriormente.
+
+        20.
+            1. Nova view para configuracoes
+            2. varios modelos de uma vez
+            3. web api
+
+
+    -->
 
     <div class="piece scanlines noclick"></div>
     <div class="piece glow noclick"></div>
